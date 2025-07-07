@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enginerd - Advanced R&D Engineering Solutions</title>
+    <meta name="description" content="Cutting-edge research & development projects: DPilot flight telemetry, DVision accessibility solutions, Water autonomous cleaning systems, and Spool AI safety monitoring.">
+    <style>
+        :root {
+            --dpilot-blue: #1CB5E0;
+            --dpilot-blue-light: #4FC3F7;
+            --dpilot-blue-dark: #0288D1;
+            --dvision-purple: #9C27B0;
+            --water-green: #00BCD4;
+            --spool-orange: #FF9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, var(--dpilot-blue) 0%, var(--dpilot-blue-dark) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+            background: var(--dpilot-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dpilot-blue);
+        }
+
+        .github-btn {
+            background: #333;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+        }
+
+        .github-btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, var(--dpilot-blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--dpilot-blue), var(--dpilot-blue-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(28, 181, 224, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(28, 181, 224, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+            padding: 6rem 0;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .projects-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card.dpilot { border-top: 4px solid var(--dpilot-blue); }
+        .project-card.dvision { border-top: 4px solid var(--dvision-purple); }
+        .project-card.water { border-top: 4px solid var(--water-green); }
+        .project-card.spool { border-top: 4px solid var(--spool-orange); }
+
+        .project-header {
+            padding: 2rem 2rem 1rem;
+            position: relative;
+        }
+
+        .project-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-production {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .status-development {
+            background: #FF9800;
+            color: white;
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .project-title.dpilot { color: var(--dpilot-blue); }
+        .project-title.dvision { color: var(--dvision-purple); }
+        .project-title.water { color: var(--water-green); }
+        .project-title.spool { color: var(--spool-orange); }
+
+        .project-tagline {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-description {
+            padding: 0 2rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features {
+            padding: 0 2rem;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .project-features li {
+            padding: 0.4rem 0;
+            color: #444;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .project-features li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .project-actions {
+            padding: 1rem 2rem 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-view {
+            background: var(--dpilot-blue);
+            color: white;
+        }
+
+        .btn-view:hover {
+            background: var(--dpilot-blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-coming {
+            background: #f8f9fa;
+            color: #666;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-coming:hover {
+            background: #e9ecef;
+        }
+
+        .btn-github {
+            background: #333;
+            color: white;
+        }
+
+        .btn-github:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        /* Coming Soon Overlay */
+        .coming-soon-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .coming-soon-overlay {
+            opacity: 1;
+        }
+
+        .coming-soon-content {
+            text-align: center;
+            color: #333;
+        }
+
+        .coming-soon-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #FF9800;
+        }
+
+        /* Developer Section */
+        .developer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 0;
+            color: white;
+        }
+
+        .developer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .developer-image {
+            text-align: center;
+        }
+
+        .developer-avatar {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            margin: 0 auto 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .developer-info h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .developer-info h3 {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .developer-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .developer-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .developer-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .dev-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .dev-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .dev-link::before {
+            margin-right: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .dev-link.portfolio::before { content: "🌐"; }
+        .dev-link.github::before { content: "💻"; }
+        .dev-link.email::before { content: "📧"; }
+        .dev-link.linkedin::before { content: "💼"; }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--dpilot-blue-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .developer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .developer-avatar {
+                width: 180px;
+                height: 180px;
+                font-size: 4rem;
+            }
+
+            .developer-info h2 {
+                font-size: 2.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animation for scroll effects */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon">🚁</div>
+                Enginerd
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#developer">About</a></li>
+            </ul>
+            <button class="github-btn" onclick="alert('GitHub repositories are currently private and under development. Public release coming soon!')">GitHub Portfolio</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Enginerd</h1>
+                <div class="hero-subtitle">Advanced R&D Engineering Solutions</div>
+                <p>Developing cutting-edge autonomous systems for flight telemetry, accessibility solutions, environmental cleanup, and AI-powered safety monitoring. Four groundbreaking projects solving real-world challenges through innovative engineering.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                    <a href="#developer" class="btn btn-secondary">Meet the Engineer</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="animate-on-scroll">R&D Project Portfolio</h2>
+                <p class="projects-subtitle animate-on-scroll">Four innovative projects pushing the boundaries of autonomous systems, accessibility technology, environmental solutions, and AI safety monitoring.</p>
+                
+                <div class="projects-grid">
+                    <!-- DPilot Project -->
+                    <div class="project-card dpilot animate-on-scroll">
+                        <div class="project-header">
+                            <div class="project-status status-production">Production Ready</div>
+                            <div class="project-icon">🚁</div>
+                            <h3 class="project-title dpilot">DPilot</h3>
+                            <p class="project-tagline">Advanced Flight Telemetry & Control System</p>
+                        </div>
+                        <div class="project-description">
+                            <p>Research-grade flight data logging and ground control system featuring 50Hz unified state communication, perfect data synchronization, web-based control, and advanced video recording with frame synchronization.</p>
+                        </div>
+                        <ul class="project-features">
+                            <li>50Hz unified state communication protocol</li>
+                            <li>AES-128 encrypted LoRa transmission</li>
+                            <li>Web-based smartphone control interface</li>
+                            <li>Perfect video-CSV frame synchronization</li>
+                            <li>Real-time artificial horizon display</li>
+                            <li>Raspberry Pi & ESP32 integration</li>
+                        </ul>
+                        <div class="project-actions">
+                            <button class="project-btn btn-view" onclick="alert('DPilot detailed documentation available - contact for access!')">View Details</button>
+                            <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
+                        </div>
+                    </div>
+
+                    <!-- DVision Project -->
+                    <div class="project-card dvision animate-on-scroll">
+                        <div class="project-header">
+                            <div class="project-status status-development">Under Development</div>
+                            <div class="project-icon">👁️</div>
+                            <h3 class="project-title dvision">DVision</h3>
+                            <p class="project-tagline">AI-Powered Accessibility Solutions for Visually Impaired</p>
+                        </div>
+                        <div class="project-description">
+                            <p>Intelligent navigation and environment understanding system using computer vision, AI, and spatial audio to provide real-time assistance for visually impaired individuals navigating complex environments.</p>
+                        </div>
+                        <ul class="project-features">
+                            <li>Real-time object detection and recognition</li>
+                            <li>Spatial audio navigation guidance</li>
+                            <li>Obstacle avoidance algorithms</li>
+                            <li>Voice-controlled interface</li>
+                            <li>Mobile app integration</li>
+                            <li>Machine learning personalization</li>
+                        </ul>
+                        <div class="project-actions">
+                            <button class="project-btn btn-coming" onclick="alert('DVision repository currently private - public release coming soon!')">Coming Soon</button>
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-content">
+                                <h4>🚧 Under Development</h4>
+                                <p>Advanced accessibility research in progress</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Water Project -->
+                    <div class="project-card water animate-on-scroll">
+                        <div class="project-header">
+                            <div class="project-status status-development">Under Development</div>
+                            <div class="project-icon">🌊</div>
+                            <h3 class="project-title water">Water</h3>
+                            <p class="project-tagline">Autonomous Waterway Cleaning & Monitoring System</p>
+                        </div>
+                        <div class="project-description">
+                            <p>Advanced autonomous vessels using DPilot technology for cleaning waterways, seas, and marinas. Features waste collection, water quality monitoring, and environmental data logging for sustainable marine ecosystem management.</p>
+                        </div>
+                        <ul class="project-features">
+                            <li>DPilot-based autonomous navigation</li>
+                            <li>Intelligent waste collection system</li>
+                            <li>Real-time water quality sensors</li>
+                            <li>Environmental data logging</li>
+                            <li>Solar-powered operation</li>
+                            <li>Marina integration platform</li>
+                        </ul>
+                        <div class="project-actions">
+                            <button class="project-btn btn-view" onclick="alert('Water project renderings and architecture available - contact for access!')">View Renderings</button>
+                            <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-content">
+                                <h4>🚧 Under Development</h4>
+                                <p>Renderings and architecture available</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spool Project -->
+                    <div class="project-card spool animate-on-scroll">
+                        <div class="project-header">
+                            <div class="project-status status-development">Under Development</div>
+                            <div class="project-icon">🏊‍♂️</div>
+                            <h3 class="project-title spool">Spool</h3>
+                            <p class="project-tagline">AI-Powered Pool Safety Monitoring System</p>
+                        </div>
+                        <div class="project-description">
+                            <p>Intelligent pool safety system combining computer vision, AI detection, and DPilot telemetry for comprehensive aquatic safety monitoring. Provides real-time alerts, incident prevention, and automated emergency response.</p>
+                        </div>
+                        <ul class="project-features">
+                            <li>Real-time drowning detection AI</li>
+                            <li>Multi-camera coverage system</li>
+                            <li>DPilot-based sensor network</li>
+                            <li>Automated emergency alerts</li>
+                            <li>Water quality monitoring</li>
+                            <li>Mobile app notifications</li>
+                        </ul>
+                        <div class="project-actions">
+                            <button class="project-btn btn-coming" onclick="alert('Spool repository currently private - public release coming soon!')">Coming Soon</button>
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-content">
+                                <h4>🚧 Under Development</h4>
+                                <p>AI safety research in progress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Section -->
+        <section id="developer" class="developer">
+            <div class="container">
+                <div class="developer-content animate-on-scroll">
+                    <div class="developer-image">
+                        <div class="developer-avatar">👨‍🔬</div>
+                        <h4 style="color: rgba(255,255,255,0.8); font-size: 1.3rem; font-weight: 300;">Research & Development Engineer</h4>
+                    </div>
+                    <div class="developer-info">
+                        <h2>Diomidis Katzourakis</h2>
+                        <h3>Autonomous Systems & AI Engineering Specialist</h3>
+                        <div class="developer-description">
+                            <p>I'm a passionate R&D engineer dedicated to developing innovative solutions that solve real-world challenges. My work spans autonomous flight systems, accessibility technology, environmental monitoring, and AI-powered safety systems.</p>
+                            
+                            <p>The Enginerd platform represents years of research into creating integrated technology solutions. From the production-ready DPilot flight telemetry system to cutting-edge developments in accessibility, environmental cleanup, and AI safety monitoring.</p>
+                            
+                            <p>My approach combines deep technical expertise with practical engineering solutions, always focusing on systems that can make a meaningful impact in the real world.</p>
+                        </div>
+                        
+                        <div class="developer-skills">
+                            <span class="skill-tag">Autonomous Systems</span>
+                            <span class="skill-tag">AI/Machine Learning</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">ESP32/Arduino</span>
+                            <span class="skill-tag">Python/C++</span>
+                            <span class="skill-tag">LoRa/RF Systems</span>
+                            <span class="skill-tag">Real-time Systems</span>
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">3D Design/CAD</span>
+                            <span class="skill-tag">Research & Development</span>
+                        </div>
+                        
+                        <div class="developer-links">
+                            <a href="https://www.enginerd.us" class="dev-link portfolio" target="_blank">Portfolio</a>
+                            <button class="dev-link github" onclick="alert('GitHub repositories currently private - public release coming soon!')">GitHub</button>
+                            <a href="mailto:contact@enginerd.us" class="dev-link email">Contact</a>
+                            <a href="https://linkedin.com/in/diomidis-katzourakis" class="dev-link linkedin" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" onclick="alert('DPilot repository currently private - public release coming soon!')">DPilot Repository</a>
+                    <a href="mailto:contact@enginerd.us">Contact</a>
+                    <a href="https://www.enginerd.us" target="_blank">Portfolio</a>
+                    <a href="#projects">Projects</a>
+                </div>
+                <p>&copy; 2025 Diomidis Katzourakis | Enginerd R&D</p>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Advanced Engineering Solutions for Tomorrow's Challenges</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Project card hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Initialize scroll animations
+            setTimeout(() => {
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+
+        // Helper function to check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Performance optimization: throttled scroll events
+        let ticking = false;
+        function updateScrollEffects() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        });
+
+        // Track external links
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a[href^="https://github.com"]')) {
+                console.log('GitHub link clicked:', e.target.href);
+            }
+            if (e.target.matches('a[href^="mailto:"]')) {
+                console.log('Email link clicked:', e.target.href);
+            }
+        });
+
+        // Console branding
+        console.log('🚁 Enginerd R&D Platform - Advanced Engineering Solutions');
+        console.log('🔧 DPilot: Production Ready | 🌊 Water: Under Development');
+        console.log('👁️ DVision: Under Development | 🏊‍♂️ Spool: Under Development');
+        console.log('💻 Built with passion by Diomidis Katzourakis');
+        console.log('📧 Contact: contact@enginerd.us');
+        console.log('🔒 Repositories currently private - public release coming soon!');
+
+        // Mobile menu functionality (for future enhancement)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        // Additional animations for enhanced user experience
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation delays
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Add loading complete class to body
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 500);
+        });
+
+        // Preload hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Trigger transform with smooth transition
+                    this.style.transition = 'all 0.4s ease';
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // Smooth reveal for elements as they come into view
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        // Apply reveal observer to all animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
