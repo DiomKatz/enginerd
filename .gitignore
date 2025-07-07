@@ -1,0 +1,30 @@
+# Ignore specific folder
+fpv_recordings/
+dpilot_logfiles/
+icons/
+flight_data/
+
+# Ignore folder anywhere in project
+**/logs/
+
+# Ignore multiple related folders
+recordings/
+backups/
+temp/
+
+# Ignore files with specific extensions in any folder
+*.mp4
+*.avi
+*.mov
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore common development files
+.vscode/
+.idea/
+*.log
+
+.DS_Store
