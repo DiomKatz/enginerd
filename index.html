@@ -12,7 +12,7 @@
             --dpilot-blue-dark: #0288D1;
             --dvision-purple: #9C27B0;
             --water-green: #00BCD4;
-            --spool-orange: #FF9800;
+            --vehdyn-blue: #2196F3;
         }
 
         * {
@@ -60,19 +60,16 @@
             font-size: 2rem;
             font-weight: bold;
             color: #333;
+            text-decoration: none;
         }
 
         .logo-icon {
             width: 45px;
             height: 45px;
             margin-right: 12px;
-            background: var(--dpilot-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
+            border-radius: 0;  /* Remove border radius for logo image */
+            object-fit: contain;  /* Ensure whole logo is visible */
+            background: transparent;  /* Remove background color */
         }
 
         .nav-links {
@@ -228,7 +225,7 @@
         .project-card.dpilot { border-top: 4px solid var(--dpilot-blue); }
         .project-card.dvision { border-top: 4px solid var(--dvision-purple); }
         .project-card.water { border-top: 4px solid var(--water-green); }
-        .project-card.spool { border-top: 4px solid var(--spool-orange); }
+        .project-card.vehdyn { border-top: 4px solid var(--vehdyn-blue); }
 
         .project-header {
             padding: 2rem 2rem 1rem;
@@ -270,7 +267,7 @@
         .project-title.dpilot { color: var(--dpilot-blue); }
         .project-title.dvision { color: var(--dvision-purple); }
         .project-title.water { color: var(--water-green); }
-        .project-title.spool { color: var(--spool-orange); }
+        .project-title.vehdyn { color: var(--vehdyn-blue); }
 
         .project-tagline {
             font-size: 1.1rem;
@@ -586,7 +583,7 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <div class="logo-icon">🚁</div>
+                <img src="./figs/Enginerd_Logo.png" alt="Enginerd Logo" class="logo-icon">
                 Enginerd
             </div>
             <ul class="nav-links">
@@ -603,8 +600,8 @@
         <section id="home" class="hero">
             <div class="container">
                 <h1>Enginerd</h1>
-                <div class="hero-subtitle">Research & Development Engineering</div>
-                <p>Developing systems for flight telemetry, accessibility solutions, environmental cleanup, and safety monitoring. Research projects focused on solving technical challenges through engineering innovation.</p>
+                <div class="hero-subtitle"> Good engineering but unapologetically nerdy — welcome to Enginerd</div>
+                <p>Developing systems for autonomous systems, flight telemetry, accessibility solutions, environmental cleanup, and safety monitoring. Research projects focused on solving technical challenges through engineering.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#developer" class="btn btn-secondary">About</a>
@@ -639,7 +636,7 @@
                             <li>Raspberry Pi & ESP32 integration</li>
                         </ul>
                         <div class="project-actions">
-                            <button class="project-btn btn-view" onclick="alert('DPilot detailed documentation available - contact for access!')">View Details</button>
+                            <a href="./dpilot/index.html" class="project-btn btn-view">View Details</a>
                             <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
                         </div>
                     </div>
@@ -664,6 +661,7 @@
                             <li>Machine learning personalization</li>
                         </ul>
                         <div class="project-actions">
+                            <a href="./dvision/index.html" class="project-btn btn-view">View Details</a>
                             <button class="project-btn btn-coming" onclick="alert('DVision repository currently private - public release coming soon!')">Coming Soon</button>
                         </div>
                         <div class="coming-soon-overlay">
@@ -694,7 +692,7 @@
                             <li>Marina integration platform</li>
                         </ul>
                         <div class="project-actions">
-                            <button class="project-btn btn-view" onclick="alert('Water project renderings and architecture available - contact for access!')">View Renderings</button>
+                            <a href="./water/index.html" class="project-btn btn-view">View Details</a>
                             <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
                         </div>
                         <div class="coming-soon-overlay">
@@ -705,32 +703,54 @@
                         </div>
                     </div>
 
-                    <!-- Spool Project -->
-                    <div class="project-card spool animate-on-scroll">
+                    <!-- Vehicle Dynamics Project -->
+                    <div class="project-card vehdyn animate-on-scroll">
                         <div class="project-header">
-                            <div class="project-status status-development">Under Development</div>
-                            <div class="project-icon">🏊‍♂️</div>
-                            <h3 class="project-title spool">Spool</h3>
-                            <p class="project-tagline">AI-Powered Pool Safety Monitoring System</p>
+                            <div class="project-status status-production">Production Ready</div>
+                            <div class="project-icon">🚗</div>
+                            <h3 class="project-title vehdyn">Vehicle Dynamics</h3>
+                            <p class="project-tagline">Advanced Vehicle Control & Motion Planning</p>
                         </div>
                         <div class="project-description">
-                            <p>Intelligent pool safety system combining computer vision, AI detection, and DPilot telemetry for comprehensive aquatic safety monitoring. Provides real-time alerts, incident prevention, and automated emergency response.</p>
+                            <p>Research and development in vehicle dynamics, motion control, and autonomous driving systems. Focusing on vehicle behavior near handling limits and advanced driver assistance systems.</p>
                         </div>
                         <ul class="project-features">
-                            <li>Real-time drowning detection AI</li>
-                            <li>Multi-camera coverage system</li>
-                            <li>DPilot-based sensor network</li>
-                            <li>Automated emergency alerts</li>
-                            <li>Water quality monitoring</li>
-                            <li>Mobile app notifications</li>
+                            <li>Vehicle engineering</li>
+                            <li>Vehicle dynamics</li>
+                            <li>Handling limits analysis</li>
+                            <li>Driver assistance systems</li>
+                            <li>Path planning optimization</li>
+                            <li>Real-time control implementation</li>
                         </ul>
                         <div class="project-actions">
-                            <button class="project-btn btn-coming" onclick="alert('Spool repository currently private - public release coming soon!')">Coming Soon</button>
+                            <a href="./vehdyn/index.html" class="project-btn btn-view">View Details</a>
+                            <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
+                        </div>
+                    </div>
+
+                    <!-- Cooking Project (Updated) -->
+                    <div class="project-card cooking animate-on-scroll">
+                        <div class="project-header">
+                            <div class="project-status status-development">In Pipeline</div>
+                            <div class="project-icon">🍽️</div>
+                            <h3 class="project-title cooking"> Projects cooking...</h3>
+                            <p class="project-tagline">Research Projects Under Development</p>
+                        </div>
+                        <div class="project-description">
+                            <p>A peek into the research and development pipeline - projects currently being explored, prototyped, and tested. From early concept validation to technical feasibility studies.</p>
+                        </div>
+                        <ul class="project-features">
+                            <li>Swim lane; swim sub 12 mins/km</li>
+                            <li>Caffe; for espresso lovers</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a href="./cooking/index.html" class="project-btn btn-view">View Pipeline</a>
+                            <button class="project-btn btn-coming" onclick="alert('Projects in development - stay tuned!')">In Development</button>
                         </div>
                         <div class="coming-soon-overlay">
                             <div class="coming-soon-content">
-                                <h4>🚧 Under Development</h4>
-                                <p>AI safety research in progress</p>
+                                <h4>🔬 In Development</h4>
+                                <p>Research projects taking shape</p>
                             </div>
                         </div>
                     </div>
@@ -744,17 +764,19 @@
                 <div class="developer-content animate-on-scroll">
                     <div class="developer-image">
                         <div class="developer-avatar">👨‍🔬</div>
-                        <h4 style="color: rgba(255,255,255,0.8); font-size: 1.3rem; font-weight: 300;">Research & Development Engineer</h4>
+                        <h4 style="color: rgba(255,255,255,0.8); font-size: 1.3rem; font-weight: 300;">The enginerd</h4>
                     </div>
                     <div class="developer-info">
                         <h2>Diomidis Katzourakis</h2>
-                        <h3>Research & Development Engineer</h3>
+                        <h3>Platform Systems Lead at Waabi.ai</h3>
                         <div class="developer-description">
-                            <p>Research engineer focused on developing technical solutions in autonomous systems and control. My work encompasses flight systems, accessibility technology, environmental monitoring, and safety systems.</p>
+                            <p>Diomidis Katzourakis serves as the Platform Systems Lead at Waabi.ai, responsible for the Systems Engineering of the Autonomous Platform. This encompasses the entire autonomy stack, excluding behavior and decision-making, a position held since October 2024.</p>
                             
-                            <p>The Enginerd platform represents ongoing research in integrated technology solutions, from flight telemetry to environmental systems.</p>
+                            <p>Prior to joining Waabi.ai, Diomidis was an Assistant Professor of Industrial Innovation on Autonomous Systems and Head of the Industrial Innovation on Autonomous (I2A) Systems group at the School of Production Engineering & Management, Technical University of Crete (TUC) in Chania, Greece (2023-2024).</p>
                             
-                            <p>My approach combines technical research with practical engineering implementation.</p>
+                            <p>From 2019 to 2023, as Systems Engineering Manager at Waymo, he led motion control and vehicle dynamics teams for autonomous ride-hailing and trucking. Earlier roles include Product Design and Controls Engineering at Apple's Special Projects Group (2015-2019) and CAE Active Safety development at Volvo Car Corporation (2012-2015).</p>
+                            
+                            <p>Diomidis holds a PhD in "Driver Steering Support Interface Near the Vehicle's Handling Limits" from TU Delft (2012), an M.Sc. in electronics and embedded systems (TUC, 2008), and a diploma in "Autonomous Vehicle Guidance" (University of Patras, 2006).</p>
                         </div>
                         
                         <div class="developer-skills">
@@ -775,6 +797,8 @@
                             <button class="dev-link github" onclick="alert('GitHub repositories currently private - public release coming soon!')">GitHub</button>
                             <a href="mailto:diomkatz [at] gmail [dot] com" class="dev-link email">Contact</a>
                             <a href="https://www.linkedin.com/in/diomidis-katzourakis-b2677820/" class="dev-link linkedin" target="_blank">LinkedIn</a>
+                            <a href="https://scholar.google.com/citations?user=a4JKgdYAAAAJ&hl=en" class="dev-link scholar" target="_blank">Scholar</a>
+                            <a href="https://patents.google.com/?inventor=Diomidis+KATZOURAKIS" class="dev-link patents" target="_blank">Patents</a>
                         </div>
                     </div>
                 </div>
@@ -907,7 +931,7 @@
         // Console branding
         console.log('🚁 Enginerd R&D Platform - Advanced Engineering Solutions');
         console.log('🔧 DPilot: Production Ready | 🌊 Water: Under Development');
-        console.log('👁️ DVision: Under Development | 🏊‍♂️ Spool: Under Development');
+        console.log('👁️ DVision: Under Development');
         console.log('💻 Built with passion by Diomidis Katzourakis');
         console.log('📧 Contact: contact@enginerd.us');
         console.log('🔒 Repositories currently private - public release coming soon!');

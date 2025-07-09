@@ -27,4 +27,17 @@ __pycache__/
 .idea/
 *.log
 
+# System files
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+
+# Build directories
+dist/
+build/
+
+# Dependencies
+node_modules/
