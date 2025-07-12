@@ -1039,21 +1039,37 @@ Pusher Motor Section:
         <!-- Demo Videos -->
         <section class="content-section alt">
             <div class="container">
+                <style>
+                    /* Override the default grid layout for video-gallery and system-images */
+                    .video-gallery, .system-images {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2rem;
+                    }
+                    
+                    /* Make each card take full width */
+                    .video-card, .image-card {
+                        width: 100%;
+                        max-width: 900px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                </style>
                 <h2 class="section-title">System Demonstrations</h2>
                 <div class="video-gallery">
                     <div class="video-card">
                         <div class="video-placeholder" onclick="alert('DPilot unified state demo video coming soon!')">▶️</div>
                         <div class="video-info">
-                            <h4>Unified State Communication</h4>
-                            <p>Complete demonstration of 50Hz unified state communication, synchronized telemetry, and real-time web interface.</p>
+                            <h4>Unified System Overlay</h4>
+                            <p>Post processed data with recorded video demonstration of 50Hz unified state communication, synchronized telemetry, and real-time web interface.</p>
                         </div>
                     </div>
-                    
+   
                     <div class="video-card">
-                        <div class="video-placeholder" onclick="alert('Web interface demo video coming soon!')">▶️</div>
+                        <div class="video-placeholder" onclick="alert('Ground control demo video coming soon!')">▶️</div>
                         <div class="video-info">
-                            <h4>Web Interface Demo</h4>
-                            <p>Live demonstration of smartphone-accessible web interface with recording controls and artificial horizon display.</p>
+                            <h4>Flying</h4>
+                            <p>Video from testing and development.</p>
                         </div>
                     </div>
                     
@@ -1061,17 +1077,11 @@ Pusher Motor Section:
                         <div class="video-placeholder" onclick="alert('Visual odometry demo video coming soon!')">▶️</div>
                         <div class="video-info">
                             <h4>Visual Odometry System</h4>
-                            <p>AI camera-based visual navigation demonstration showing feature detection and position estimation.</p>
+                            <p>Work in progress visual navigation demonstration showing feature detection and position estimation.</p>
                         </div>
                     </div>
                     
-                    <div class="video-card">
-                        <div class="video-placeholder" onclick="alert('Ground control demo video coming soon!')">▶️</div>
-                        <div class="video-info">
-                            <h4>Ground Control Station</h4>
-                            <p>Desktop application with FPV video overlay, mission command streaming, and G-G acceleration diagrams.</p>
-                        </div>
-                    </div>
+
                 </div>
                 
                 <!-- System Images Section -->
