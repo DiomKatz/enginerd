@@ -11,7 +11,7 @@
             --dpilot-blue-light: #4FC3F7;
             --dpilot-blue-dark: #0288D1;
             --dvision-purple: #9C27B0;
-            --water-green: #00BCD4;
+            --water-green: #1CB5E0;
             --vehdyn-blue: #2196F3;
         }
 
@@ -601,7 +601,7 @@
             <div class="container">
                 <h1>Enginerd</h1>
                 <div class="hero-subtitle"> Good engineering but unapologetically nerdy — welcome to Enginerd</div>
-                <p>Developing systems for autonomous systems, flight telemetry, accessibility solutions, environmental cleanup, and safety monitoring. Research projects focused on solving technical challenges through engineering.</p>
+                <p>Developing systems for autonomous systems, flight telemetry, environmental cleanup, and safety monitoring. </p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#developer" class="btn btn-secondary">About</a>
@@ -613,118 +613,76 @@
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="animate-on-scroll">Project Portfolio</h2>
-                <p class="projects-subtitle animate-on-scroll">Research and development projects in autonomous systems, accessibility technology, environmental solutions, and safety monitoring.</p>
+                <p class="projects-subtitle animate-on-scroll"></p>
                 
                 <div class="projects-grid">
                     <!-- DPilot Project -->
                     <div class="project-card dpilot animate-on-scroll">
                         <div class="project-header">
-                            <div class="project-status status-production">Production Ready</div>
-                            <div class="project-icon">🚁</div>
+                            <div class="project-status status-project">Research Project</div>
+                            <img src="./dpilot/figs/dpilot.png" alt="DPilot Logo" class="project-icon" style="width: 64px; height: 64px; object-fit: contain; background: none; border-radius: 0;">
                             <h3 class="project-title dpilot">DPilot</h3>
-                            <p class="project-tagline">Advanced Flight Telemetry & Control System</p>
+                            <!-- This tagline and description will be updated with your content -->
+                            <p class="project-tagline">Flight Data Logging & Control Experiments</p>
                         </div>
                         <div class="project-description">
-                            <p>Research-focused flight data logging and control system with high-frequency state communication, data synchronization, and integrated video processing capabilities.</p>
+                            <!-- This description will be updated with your content -->
+                            <p>A project exploring flight data logging and control systems. Features include basic state communication, data logging, and video processing for experimental purposes.</p>
                         </div>
-                        <ul class="project-features">
-                            <li>50Hz unified state communication protocol</li>
-                            <li>AES-128 encrypted LoRa transmission</li>
-                            <li>Web-based smartphone control interface</li>
-                            <li>Perfect video-CSV frame synchronization</li>
-                            <li>Real-time artificial horizon display</li>
-                            <li>Raspberry Pi & ESP32 integration</li>
-                        </ul>
                         <div class="project-actions">
                             <a href="./dpilot/index.html" class="project-btn btn-view">View Details</a>
-                            <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
+                            <button class="project-btn btn-coming" onclick="alert('Repository currently private')">Source Private</button>
                         </div>
                     </div>
 
                     <!-- DVision Project -->
                     <div class="project-card dvision animate-on-scroll">
                         <div class="project-header">
-                            <div class="project-status status-development">Under Development</div>
+                            <div class="project-status status-project">Early Stage</div>
                             <div class="project-icon">👁️</div>
                             <h3 class="project-title dvision">DVision</h3>
-                            <p class="project-tagline">AI-Powered Accessibility Solutions for Visually Impaired</p>
+                            <p class="project-tagline">Accessibility Research Project</p>
                         </div>
                         <div class="project-description">
-                            <p>Intelligent navigation and environment understanding system using computer vision, AI, and spatial audio to provide real-time assistance for visually impaired individuals navigating complex environments.</p>
+                            <p>An experimental project exploring computer vision and spatial audio for accessibility applications. Testing different approaches for navigation assistance.</p>
                         </div>
-                        <ul class="project-features">
-                            <li>Real-time object detection and recognition</li>
-                            <li>Spatial audio navigation guidance</li>
-                            <li>Obstacle avoidance algorithms</li>
-                            <li>Voice-controlled interface</li>
-                            <li>Mobile app integration</li>
-                            <li>Machine learning personalization</li>
-                        </ul>
                         <div class="project-actions">
                             <a href="./dvision/index.html" class="project-btn btn-view">View Details</a>
-                            <button class="project-btn btn-coming" onclick="alert('DVision repository currently private - public release coming soon!')">Coming Soon</button>
-                        </div>
-                        <div class="coming-soon-overlay">
-                            <div class="coming-soon-content">
-                                <h4>🚧 Under Development</h4>
-                                <p>Advanced accessibility research in progress</p>
-                            </div>
+                            <button class="project-btn btn-coming" onclick="alert('Repository currently private')">Source Private</button>
                         </div>
                     </div>
 
                     <!-- Water Project -->
                     <div class="project-card water animate-on-scroll">
                         <div class="project-header">
-                            <div class="project-status status-development">Under Development</div>
+                            <div class="project-status status-project">Concept Phase</div>
                             <div class="project-icon">🌊</div>
-                            <h3 class="project-title water">Water</h3>
-                            <p class="project-tagline">Autonomous Waterway Cleaning & Monitoring System</p>
+                            <h3 class="project-title water">Water2030</h3>
+                            <p class="project-tagline">Water Autonomous Treatment and Environmental Restoration 2030</p>
                         </div>
                         <div class="project-description">
-                            <p>Advanced autonomous vessels using DPilot technology for cleaning waterways, seas, and marinas. Features waste collection, water quality monitoring, and environmental data logging for sustainable marine ecosystem management.</p>
+                            <p>A concept project for testing autonomous waterway monitoring ideas. Exploring basic data collection and control systems for marine applications.</p>
                         </div>
-                        <ul class="project-features">
-                            <li>DPilot-based autonomous navigation</li>
-                            <li>Intelligent waste collection system</li>
-                            <li>Real-time water quality sensors</li>
-                            <li>Environmental data logging</li>
-                            <li>Solar-powered operation</li>
-                            <li>Marina integration platform</li>
-                        </ul>
                         <div class="project-actions">
                             <a href="./water/index.html" class="project-btn btn-view">View Details</a>
-                            <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
-                        </div>
-                        <div class="coming-soon-overlay">
-                            <div class="coming-soon-content">
-                                <h4>🚧 Under Development</h4>
-                                <p>Renderings and architecture available</p>
-                            </div>
+                            <button class="project-btn btn-coming" onclick="alert('Repository currently private')">Source Private</button>
                         </div>
                     </div>
 
                     <!-- Vehicle Dynamics Project -->
                     <div class="project-card vehdyn animate-on-scroll">
                         <div class="project-header">
-                            <div class="project-status status-production">Production Ready</div>
+                            <div class="project-status status-project">Research Project</div>
                             <div class="project-icon">🚗</div>
                             <h3 class="project-title vehdyn">Vehicle Dynamics</h3>
-                            <p class="project-tagline">Advanced Vehicle Control & Motion Planning</p>
+                            <p class="project-tagline">Vehicle Control Research</p>
                         </div>
                         <div class="project-description">
-                            <p>Research and development in vehicle dynamics, motion control, and autonomous driving systems. Focusing on vehicle behavior near handling limits and advanced driver assistance systems.</p>
+                            <p>A research project studying vehicle dynamics and control systems. Testing ideas around vehicle behavior and basic driver assistance concepts.</p>
                         </div>
-                        <ul class="project-features">
-                            <li>Vehicle engineering</li>
-                            <li>Vehicle dynamics</li>
-                            <li>Handling limits analysis</li>
-                            <li>Driver assistance systems</li>
-                            <li>Path planning optimization</li>
-                            <li>Real-time control implementation</li>
-                        </ul>
                         <div class="project-actions">
                             <a href="./vehdyn/index.html" class="project-btn btn-view">View Details</a>
-                            <button class="project-btn btn-coming" onclick="alert('Repository currently private - public release coming soon!')">Source Private</button>
+                            <button class="project-btn btn-coming" onclick="alert('Repository currently private')">Source Private</button>
                         </div>
                     </div>
 
@@ -763,20 +721,20 @@
             <div class="container">
                 <div class="developer-content animate-on-scroll">
                     <div class="developer-image">
-                        <div class="developer-avatar">👨‍🔬</div>
+                        <img src="./figs/IMG_7455.jpg" alt="Diomidis Katzourakis" class="developer-avatar" style="object-fit: cover; width: 400px; height: 400px; border-radius: 50%; box-shadow: 0 15px 35px rgba(0,0,0,0.2); margin: 0 auto 2rem;">
                         <h4 style="color: rgba(255,255,255,0.8); font-size: 1.3rem; font-weight: 300;">The enginerd</h4>
                     </div>
                     <div class="developer-info">
                         <h2>Diomidis Katzourakis</h2>
-                        <h3>Platform Systems Lead at Waabi.ai</h3>
+                        <h3>Professional experience and studies</h3>
                         <div class="developer-description">
-                            <p>Diomidis Katzourakis serves as the Platform Systems Lead at Waabi.ai, responsible for the Systems Engineering of the Autonomous Platform. This encompasses the entire autonomy stack, excluding behavior and decision-making, a position held since October 2024.</p>
+                            <p>Diomidis Katzourakis serves as the Platform Systems Lead at <a href="https://waabi.ai/" target="_blank">Waabi.ai</a>, responsible for the Systems Engineering of the Autonomous Platform. This encompasses the entire autonomy stack, excluding behavior and decision-making, a position held since October 2024.</p>
                             
-                            <p>Prior to joining Waabi.ai, Diomidis was an Assistant Professor of Industrial Innovation on Autonomous Systems and Head of the Industrial Innovation on Autonomous (I2A) Systems group at the School of Production Engineering & Management, Technical University of Crete (TUC) in Chania, Greece (2023-2024).</p>
+                            <p>Prior to joining Waabi.ai, Diomidis was an Assistant Professor of Industrial Innovation on Autonomous Systems and Head of the Industrial Innovation on Autonomous (I2A) Systems group at the School of Production Engineering & Management, <a href="https://www.tuc.gr" target="_blank">Technical University of Crete (TUC)</a> in Chania, Greece (2023-2024).</p>
                             
-                            <p>From 2019 to 2023, as Systems Engineering Manager at Waymo, he led motion control and vehicle dynamics teams for autonomous ride-hailing and trucking. Earlier roles include Product Design and Controls Engineering at Apple's Special Projects Group (2015-2019) and CAE Active Safety development at Volvo Car Corporation (2012-2015).</p>
+                            <p>From 2019 to 2023, as Systems Engineering Manager at <a href="https://waymo.com/" target="_blank">Waymo</a>, he led motion control and vehicle dynamics teams for autonomous ride-hailing and trucking. Earlier roles include Product Design and Controls Engineering at <a href="https://www.apple.com/" target="_blank">Apple's Special Projects Group</a> (2015-2019) and CAE Active Safety development at Volvo Car Corporation (2012-2015).</p>
                             
-                            <p>Diomidis holds a PhD in "Driver Steering Support Interface Near the Vehicle's Handling Limits" from TU Delft (2012), an M.Sc. in electronics and embedded systems (TUC, 2008), and a diploma in "Autonomous Vehicle Guidance" (University of Patras, 2006).</p>
+                            <p>Diomidis holds a PhD in "Driver Steering Support Interface Near the Vehicle's Handling Limits" from <a href="https://www.tudelft.nl/en/" target="_blank">Technical University of Delft the Netherlands</a> (<a href="https://repository.tudelft.nl/record/uuid:87f43ef4-c94a-43f1-8c24-d487b387ebbb" target="_blank">thesis</a>, 2012), an M.Sc. in electronics and embedded systems (<a href="https://www.tuc.gr" target="_blank">Technical University of Crete, Greece</a>, 2008), and a diploma in "Autonomous Vehicle Guidance" (<a href="https://www.upatras.gr/en/" target="_blank">University of Patras, Greece</a>, 2006).</p>
                         </div>
                         
                         <div class="developer-skills">
@@ -815,8 +773,8 @@
                     <a href="https://www.enginerd.us" target="_blank">Portfolio</a>
                     <a href="#projects">Projects</a>
                 </div>
-                <p>&copy; 2025 Diomidis Katzourakis | Enginerd R&D</p>
-                <p style="opacity: 0.7; font-size: 0.9rem;">Advanced Engineering Solutions for Tomorrow's Challenges</p>
+                <p>&copy; 2025 Diomidis Katzourakis | Enginerd </p>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Enginerd for life ...</p>
             </div>
         </div>
     </footer>

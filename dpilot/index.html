@@ -306,7 +306,49 @@
             font-size: 1.2rem;
         }
 
-        /* Responsive Design */
+        /* Add these styles to your existing <style> section */
+        .doc-section {
+            margin-bottom: 4rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .doc-details h4 {
+            color: var(--dpilot-blue);
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .doc-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .doc-image figcaption {
+            text-align: center;
+            margin-top: 0.5rem;
+            color: #666;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -322,6 +364,10 @@
 
             .specs-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .doc-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -343,6 +389,217 @@
         .fade-in:nth-child(2) { animation-delay: 0.2s; }
         .fade-in:nth-child(3) { animation-delay: 0.3s; }
         .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Add these styles */
+        .component-category {
+            margin-bottom: 3rem;
+        }
+
+        .component-category h4 {
+            color: var(--dpilot-blue);
+            border-bottom: 2px solid var(--dpilot-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .component-subgrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .component-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .component-card h5 {
+            color: var(--dpilot-blue);
+            margin-bottom: 1rem;
+        }
+
+        .component-card a {
+            color: var(--dpilot-blue);
+            text-decoration: none;
+        }
+
+        .component-card a:hover {
+            text-decoration: underline;
+        }
+
+        .system-diagram {
+            margin: 2rem 0;
+        }
+
+        .subsystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .subsystem-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .test-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .test-card ol {
+            padding-left: 1.5rem;
+        }
+
+        .metrics-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .code-block {
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            background: #f1f3f5;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .requirement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .requirement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .requirement-card h3 {
+            color: var(--dpilot-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .requirement-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirement-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .requirement-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--dpilot-blue);
+            font-weight: bold;
+        }
+
+        /* Add image placeholders for each major section */
+        .system-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .image-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .image-placeholder {
+            background: linear-gradient(45deg, var(--dpilot-blue), var(--dpilot-blue-dark));
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .image-info {
+            padding: 1rem;
+        }
+
+        .image-info h5 {
+            color: var(--dpilot-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .image-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .wing-config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .wing-config-table th, .wing-config-table td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        .wing-config-table th {
+            background: var(--dpilot-blue);
+            color: white;
+        }
+
+        .cable-harness {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -368,9 +625,56 @@
             <div class="container">
                 <img src="./figs/dpilot.png" alt="DPilot" class="hero-logo" />
                 <h1>DPilot</h1>
-                <div class="hero-subtitle">Advanced Flight Telemetry & Control System</div>
-                <div class="status-badge" style="background: #2196F3;">Project</div>
-                <p>A personal research project exploring flight data logging and control systems. Features include state communication, data logging, web-based monitoring, and video processing for educational and experimental purposes.</p>
+                <div class="hero-subtitle">Autonomous Flight System with Visual Odometry</div>
+                <div class="status-badge" style="background: #2196F3;">Research Project</div>
+                <p>Research platform exploring autonomous flight using visual odometry and AI-powered feature detection. Currently implementing conventional Pi Camera vision processing with plans to integrate Raspberry Pi AI Camera for enhanced feature detection and matching capabilities.</p>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section class="content-section alt">
+            <div class="container">
+                <h2 class="section-title">System Requirements</h2>
+                
+                <!-- Update the Requirements section -->
+                <div class="requirements-grid">
+                    <div class="requirement-card fade-in">
+                        <h3>🎯 Mission Requirements</h3>
+                        <ul>
+                            <li>Range: >15 km mission coverage</li>
+                            <li>Flight Time: >30 minutes endurance</li>
+                            <li>Communication: >5 km line of sight</li>
+                            <li>Update Rate: >5 Hz state feedback</li>
+                            <li>Flying speed: >120 km/h</li>
+                            <li>Autonomous operation (In Development)</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card fade-in">
+                        <h3>🤖 Development Status</h3>
+                        <ul>
+                            <li>✅ State estimation & feedback</li>
+                            <li>✅ Secure LoRa communication</li>
+                            <li>✅ Data & video logging</li>
+                            <li>✅ Mission reference commands</li>
+                            <li>🔄 Visual odometry (In Progress)</li>
+                            <li>📝 AI processing (Planned)</li>
+                            <li>📝 Dead reckoning (Planned)</li>
+                            <li>📝 Full autonomy (Future)</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card fade-in">
+                        <h3>⚙️ System Architecture</h3>
+                        <ul>
+                            <li>Total cost: <$200 (compute only)</li>
+                            <li>Modular & expandable design</li>
+                            <li>Cross-platform compatibility</li>
+                            <li>AES-128 encryption</li>
+                            <li>Web-based ground control</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -420,6 +724,17 @@
                             <li>CSV data correlation</li>
                         </ul>
                     </div>
+
+                    <div class="feature-card fade-in">
+                        <h3>🧠 Visual Navigation</h3>
+                        <ul>
+                            <li>Visual odometry implementation (In Progress)</li>
+                            <li>Basic feature detection and tracking</li>
+                            <li>AI camera hardware integration ready</li>
+                            <li>Position estimation (Development)</li>
+                            <li>SLAM capabilities (Planned)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -428,30 +743,39 @@
         <section class="content-section alt">
             <div class="container">
                 <h2 class="section-title">Project Specifications</h2>
+                <!-- Update the Specifications section -->
                 <div class="specs-grid">
                     <div class="spec-card">
                         <div class="spec-value">50Hz</div>
-                        <div class="spec-label">Unified State Rate</div>
+                        <div class="spec-label">State Estimation</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-value">60 bytes</div>
-                        <div class="spec-label">Complete State Packet</div>
-                    </div>
-                    <div class="spec-card">
-                        <div class="spec-value">100%</div>
-                        <div class="spec-label">Data Synchronization</div>
+                        <div class="spec-value">10Hz</div>
+                        <div class="spec-label">GPS Update Rate</div>
                     </div>
                     <div class="spec-card">
                         <div class="spec-value">2km</div>
-                        <div class="spec-label">LoRa Range</div>
+                        <div class="spec-label">Tested Range</div>
                     </div>
                     <div class="spec-card">
                         <div class="spec-value">AES-128</div>
                         <div class="spec-label">Encryption</div>
                     </div>
                     <div class="spec-card">
+                        <div class="spec-value">60 bytes</div>
+                        <div class="spec-label">State Packet</div>
+                    </div>
+                    <div class="spec-card">
                         <div class="spec-value">&lt;100ms</div>
                         <div class="spec-label">Command Latency</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-value">30 FPS</div>
+                        <div class="spec-label">Video Recording</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-value">5Hz+</div>
+                        <div class="spec-label">Mission Updates</div>
                     </div>
                 </div>
             </div>
@@ -530,10 +854,10 @@
             <div class="container">
                 <h2 class="section-title">Project Documentation</h2>
                 <div class="doc-links">
-                    <button class="doc-link" onclick="alert('Project documentation in progress')">
+                    <a href="./docs.html" class="doc-link">
                         <h4>📚 Documentation</h4>
-                        <p>Project overview and implementation notes</p>
-                    </button>
+                        <p>System architecture and implementation details</p>
+                    </a>
                     
                     <button class="doc-link" onclick="alert('Setup instructions in development')">
                         <h4>🔧 Setup Notes</h4>
@@ -542,45 +866,363 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        <!-- Add this before the closing </main> tag -->
+        <section class="content-section" id="documentation">
+            <div class="container">
+                <h2 class="section-title">Technical Documentation</h2>
+                
+                <div class="doc-content">
+                    <!-- Aircraft Integration -->
+                    <div class="doc-section fade-in">
+                        <h3>Aircraft Integration</h3>
+                        <div class="doc-grid">
+                            <div class="doc-details">
+                                <h4>Platform Specifications</h4>
+                                <ul>
+                                    <li>Aircraft: VolantexRC Ranger 1600/2000</li>
+                                    <li>Wingspan: 1600mm/2000mm EPO foam</li>
+                                    <li>Flying Weight: 1200-1500g with telemetry</li>
+                                    <li>Power: 3S-4S LiPo (11.1V-14.8V)</li>
+                                </ul>
+                            </div>
+                            <figure class="doc-image">
+                                <img src="./figs/aircraft_integration.png" alt="Aircraft Integration">
+                                <figcaption>Complete aircraft integration showing component placement</figcaption>
+                            </figure>
+                        </div>
+                    </div>
 
-        // Add fade-in animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+                    <!-- PCB Design -->
+                    <div class="doc-section fade-in">
+                        <h3>Custom PCB Design</h3>
+                        <div class="doc-grid">
+                            <div class="doc-details">
+                                <h4>Manufacturing Specifications</h4>
+                                <pre class="code-block">
+Order Specifications:
+├─ Quantity: 5-10 PCBs
+├─ Layer Count: 2 layers
+├─ Thickness: 1.6mm
+├─ Surface Finish: HASL/ENIG
+├─ Solder Mask: Green
+├─ Silkscreen: White
+├─ Via Process: Tenting
+└─ Electrical Test: Yes</pre>
+                            </div>
+                            <div class="doc-details">
+                                <h4>Component List</h4>
+                                <ul>
+                                    <li>ESP32-S3 Microcontroller</li>
+                                    <li>SX1262 LoRa Module</li>
+                                    <li>MPU6050 IMU</li>
+                                    <li>SD Card Socket</li>
+                                    <li>JST & USB-C Connectors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+                    <!-- Visual Navigation -->
+                    <div class="doc-section fade-in">
+                        <h3>Visual Navigation System</h3>
+                        <div class="doc-grid">
+                            <div class="doc-details">
+                                <h4>Camera System</h4>
+                                <ul>
+                                    <li>Current: Raspberry Pi Camera V2</li>
+                                    <li>Planned: Raspberry Pi AI Camera</li>
+                                    <li>Processing: Visual Odometry</li>
+                                    <li>Features: Real-time SLAM</li>
+                                </ul>
+                            </div>
+                            <figure class="doc-image">
+                                <img src="./figs/vision_system.png" alt="Vision System">
+                                <figcaption>Visual odometry system architecture</figcaption>
+                            </figure>
+                        </div>
+                    </div>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+                    <!-- Hardware Components -->
+                    <div class="doc-section fade-in">
+    <h3>Hardware Components</h3>
+    
+    <!-- Aircraft Platform -->
+    <div class="component-category">
+        <h4>Aircraft Platform</h4>
+        <div class="component-grid">
+            <div class="component-details">
+                <h5>Main Aircraft</h5>
+                <ul>
+                    <li><strong>Model:</strong> VolantexRC Ranger 1600 V757-7</li>
+                    <li><strong>Wingspan:</strong> 1600mm</li>
+                    <li><strong>Material:</strong> EPO Foam</li>
+                    <li><strong>Configuration:</strong> PNP (Plug-n-Play)</li>
+                    <li><a href="https://www.aliexpress.us/item/3256807836207460.html" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+        </div>
 
-        console.log('🚁 DPilot - Flight Data Logging Project');
-        console.log('📧 Contact: contact@enginerd.us for project details');
-        console.log('🔒 Code available upon request');
-    </script>
-</body>
-</html>
+        <!-- Propulsion System -->
+        <div class="component-subgrid">
+            <div class="component-card">
+                <h5>Motor</h5>
+                <ul>
+                    <li>D3536 Brushless Outrunner</li>
+                    <li>1450KV Rating</li>
+                    <li><a href="https://www.amazon.com/dp/B084Q62BSK" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+            <div class="component-card">
+                <h5>Propeller</h5>
+                <ul>
+                    <li>Master Airscrew 3-Blade</li>
+                    <li>8x6 Performance</li>
+                    <li>Reverse/Pusher/CW</li>
+                    <li><a href="https://www.amazon.com/dp/B002VAM9BA" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+            <div class="component-card">
+                <h5>ESC</h5>
+                <ul>
+                    <li>60A Brushless ESC</li>
+                    <li>4A UBEC Included</li>
+                    <li>XT60 & 3.5mm Bullet Plugs</li>
+                    <li><a href="https://www.amazon.com/dp/B079CNVCYF" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Computing System -->
+    <div class="component-category">
+        <h4>Computing & Control</h4>
+        <div class="component-subgrid">
+            <div class="component-card">
+                <h5>Main Computer</h5>
+                <ul>
+                    <li>Raspberry Pi Zero 2 W</li>
+                    <li><a href="https://www.aliexpress.us/item/3256803347133898.html" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+            <div class="component-card">
+                <h5>Communication</h5>
+                <ul>
+                    <li>ESP32 LoRa V3 Kit</li>
+                    <li>0.96" OLED Display</li>
+                    <li>SX1262 868/915MHz</li>
+                    <li><a href="https://www.aliexpress.us/item/3256807144029967.html" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sensors & Peripherals -->
+    <div class="component-category">
+        <h4>Sensors & Displays</h4>
+        <div class="component-subgrid">
+            <div class="component-card">
+                <h5>Camera</h5>
+                <ul>
+                    <li>5MP 1080p OV5647</li>
+                    <li>Raspberry Pi Compatible</li>
+                    <li><a href="https://www.aliexpress.us/item/3256808030595129.html" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+            <div class="component-card">
+                <h5>Display</h5>
+                <ul>
+                    <li>2.0" TFT OLED LCD</li>
+                    <li>ST7789V Driver</li>
+                    <li>240RGB×320 Resolution</li>
+                    <li>SPI Interface</li>
+                    <li><a href="https://www.aliexpress.us/item/3256807958701332.html" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+            <div class="component-card">
+                <h5>IMU</h5>
+                <ul>
+                    <li>GY-521 MPU-6050</li>
+                    <li>3-Axis Gyro + Accelerometer</li>
+                    <li><a href="https://www.aliexpress.us/item/3256806210029099.html" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Power & Storage -->
+    <div class="component-category">
+        <h4>Power & Storage</h4>
+        <div class="component-subgrid">
+            <div class="component-card">
+                <h5>Power Regulation</h5>
+                <ul>
+                    <li>LM2596 DC-DC Buck Converter</li>
+                    <li>Output: 1.25V-30V 3A</li>
+                    <li><a href="https://www.amazon.com/dp/B07VVXF7YX" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+            <div class="component-card">
+                <h5>Storage</h5>
+                <ul>
+                    <li>Micro SD Card Module</li>
+                    <li>Arduino Compatible</li>
+                    <li><a href="https://www.aliexpress.us/item/3256805098115307.html" target="_blank">Source Link</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+
+                    <!-- Update the Data Flow diagram in the system-diagram section -->
+                    <div class="doc-section fade-in">
+    <h3>Data Flow Architecture</h3>
+    <div class="system-diagram">
+        <pre class="code-block">
+Aircraft Sensors → Custom PCB ESP32 → LoRa → Ground ESP32 → USB → Pi Zero 2W
+     ↓                    ↓                                      ↓
+     ├─ IMU (50Hz) ──────→ Filtered data ──────────────────────→ Raw data
+     ├─ GPS (10Hz) ──────→ Position/velocity ─────────────────→ Navigation
+     ├─ ADC (50Hz) ──────→ Aircraft systems ──────────────────→ Health monitoring  
+     └─ Status ──────────→ Flight status ────────────────────→ Safety monitoring</pre>
+    </div>
+
+    <div class="subsystem-grid">
+        <div class="subsystem-card">
+            <h4>Pi Zero 2W Processing</h4>
+            <ul>
+                <li>Video recording (H.264) with AI camera</li>
+                <li>Data logging (CSV) at 50Hz</li>
+                <li>Web interface (port 5000)</li>
+                <li>WiFi hotspot (field access)</li>
+                <li>Visual odometry processing</li>
+                <li>Command generation (mission planning)</li>
+            </ul>
+        </div>
+
+        <div class="subsystem-card">
+            <h4>Ground Station Display</h4>
+            <ul>
+                <li>Real-time telemetry</li>
+                <li>G-G acceleration diagram</li>
+                <li>Flight status monitoring</li>
+                <li>Range/signal quality</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+                    <div class="doc-section fade-in">
+    <h3>System Integration Testing</h3>
+    <div class="test-grid">
+        <div class="test-card">
+            <h4>Ground Test Sequence</h4>
+            <ol>
+                <li>Power System Test: Verify all voltages, current draw</li>
+                <li>Communication Test: LoRa link quality, range test</li>
+                <li>Sensor Calibration: IMU alignment, GPS acquisition</li>
+                <li>Data Logging Test: 50Hz unified state verification</li>
+                <li>Video System Test: AI camera, recording, visual odometry</li>
+                <li>Web Interface Test: WiFi hotspot, telemetry display</li>
+                <li>Flight Control Integration: Commands, responses, safety</li>
+            </ol>
+        </div>
+
+        <div class="test-card">
+            <h4>Flight Test Progression</h4>
+            <ol>
+                <li>Taxi Tests: Ground movement, sensor data quality</li>
+                <li>Range Tests: LoRa performance at distance</li>
+                <li>Short Flights: Basic telemetry, video recording</li>
+                <li>Extended Flights: Full mission profile testing</li>
+                <li>Autonomous Tests: Command following, waypoint navigation</li>
+                <li>Visual Odometry Tests: Ground feature tracking validation</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="metrics-card">
+        <h4>Data Quality Metrics</h4>
+        <pre class="code-block">
+Telemetry Performance Requirements:
+├─ Unified State Rate: 50Hz ±1Hz
+├─ LoRa Success Rate: >95% at operational range
+├─ GPS Rate: 10Hz after configuration
+├─ IMU Data Quality: <3% duplicate rate
+├─ Video Sync: Frame-perfect CSV alignment
+├─ Visual Odometry: Basic feature tracking
+└─ Power Efficiency: >2 hour flight endurance</pre>
+    </div>
+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add this as a new section after the Technical Specifications section -->
+        <section class="content-section" id="technical-docs">
+    <div class="container">
+        <h2 class="section-title">Technical Documentation</h2>
+
+        <!-- System Architecture Overview -->
+        <div class="doc-section fade-in">
+            <h3>System Architecture Overview</h3>
+            <div class="doc-grid">
+                <div class="doc-details">
+                    <h4>Core Components</h4>
+                    <ul>
+                        <li><strong>Aircraft Platform:</strong> VolantexRC Ranger 1600/2000</li>
+                        <li><strong>Mission Computer:</strong> Raspberry Pi Zero 2W with IMX500</li>
+                        <li><strong>Telemetry:</strong> Custom ESP32 LoRa system</li>
+                    </ul>
+                </div>
+                <div class="system-diagram">
+                    <pre class="code-block">
+Drone ESP32: Custom PCB Integration
+├─ MPU6050 IMU
+├─ SD card logging
+└─ LoRa communication
+
+Base Station:
+├─ Heltec ESP32
+├─ TFT display
+└─ USB powered</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aircraft Specifications -->
+        <div class="doc-section fade-in">
+            <h3>Aircraft Platform</h3>
+            <div class="specs-table">
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Wingspan</td>
+                        <td>1600mm/2000mm</td>
+                        <td>EPO foam construction</td>
+                    </tr>
+                    <tr>
+                        <td>Length</td>
+                        <td>1075mm</td>
+                        <td>Pusher configuration</td>
+                    </tr>
+                    <tr>
+                        <td>Wing Area</td>
+                        <td>26.5/32.8dm²</td>
+                        <td>High aspect ratio</td>
+                    </tr>
+                    <tr>
+                        <td>Flying Weight</td>
+                        <td>1200-1500g</td>
+                        <td>With telemetry</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Would you like me to continue with the next sections? I can add the PCB design, power system, and all

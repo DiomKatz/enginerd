@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATER2030 - Water Autonomous Treatment and Environmental Restoration</title>
+    <meta name="description" content="WATER2030: Autonomous surface vessel project for water waste harvesting and plastic pollution cleanup using advanced AI and robotics.">
+    <style>
+        :root {
+            --water-blue: #1CB5E0;
+            --water-blue-light: #4DD0E1;
+            --water-blue-dark: #00838F;
+            --water-green: #26A69A;
+            --ocean-deep: #006064;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, var(--water-blue) 0%, var(--ocean-deep) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--water-blue-dark);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--water-blue);
+        }
+
+        .back-btn {
+            background: var(--water-blue);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-btn:hover {
+            background: var(--water-blue-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 188, 212, 0.1) 0%, rgba(0, 96, 100, 0.3) 100%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, var(--water-blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-status {
+            display: inline-block;
+            background: rgba(255, 193, 7, 0.9);
+            color: #333;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--water-blue) 0%, var(--water-blue-dark) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .section-content {
+            padding: 3rem 2rem;
+        }
+
+        /* Problem Statement */
+        .problem-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--water-blue-light) 0%, var(--water-blue) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Images */
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .image-card {
+            width: 100%;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            background: white;
+        }
+
+        .image-caption {
+            padding: 1.5rem;
+            font-size: 1rem;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Technical Features */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tech-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 4px solid var(--water-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .tech-card h3 {
+            color: var(--water-blue-dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .tech-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tech-card li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tech-card li::before {
+            content: "🌊";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Objectives */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .objective-card {
+            background: white;
+            border: 2px solid var(--water-blue-light);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .objective-card:hover {
+            border-color: var(--water-blue);
+            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.2);
+        }
+
+        .objective-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .objective-card h3 {
+            color: var(--water-blue-dark);
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--water-blue);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--water-blue);
+        }
+
+        .timeline-date {
+            background: var(--water-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Team Section */
+        .team-card {
+            background: linear-gradient(135deg, var(--water-blue-light) 0%, var(--water-blue) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .team-member {
+            margin-bottom: 2rem;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th {
+            background: var(--water-blue);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: calc(100% - 40px);
+                margin-left: 40px;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 40px;
+            }
+
+            .section-content {
+                padding: 2rem 1rem;
+            }
+
+            .image-card img {
+                max-height: 400px;
+            }
+        }
+
+        /* Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Abbreviations tooltip */
+        .abbr-tooltip {
+            position: relative;
+            border-bottom: 1px dotted var(--water-blue);
+            cursor: help;
+        }
+
+        .abbr-tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <span class="logo-icon">🌊</span>
+                WATER2030
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#technical">Technical</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+            <a href="../index.html" class="back-btn">← Back to Enginerd</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="overview" class="hero">
+            <div class="container">
+                <h1>WATER2030</h1>
+                <div class="hero-subtitle">Water Autonomous Treatment and Environmental Restoration</div>
+                <p>Autonomous surface vessel project for water waste harvesting and plastic pollution cleanup using advanced AI, robotics, and systems engineering principles.</p>
+                <div class="project-status">Research Project - Concept Phase</div>
+            </div>
+        </section>
+
+        <!-- Project History Section -->
+        <section class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>Project Evolution</h2>
+                <p>From COVID-19 Response to Award-Winning Innovation</p>
+            </div>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020</div>
+                            <h4>Project Conception</h4>
+                            <p>WATER2030 was conceived during the COVID-19 pandemic, addressing the challenges authorities faced in maintaining and cleaning marine environments when human resources were limited.</p>
+                            <p> It was mostly driven by Diomidis' deep love for the sea and desire to preserve and restore the environment with the aid of science/engineering. </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024</div>
+                            <h4>ERC Grant Proposal</h4>
+                            <p>Submitted as an ERC Consolidator Grant 2024 proposal to the <a href="https://erc.europa.eu/homepage" target="_blank" rel="noopener">European Research Council</a>. Despite not securing funding, the proposal laid the groundwork for future developments.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024</div>
+                            <h4>Prototype Success</h4>
+                            <p>The vision inspired Ernesto Sigalas at Technical University of Crete to develop a working prototype, winning first place at POPRI EUSAIR Youth 2024:</p>
+                            <ul style="margin-top: 1rem; list-style: none;">
+                                <li>🏆 Team: Ernesto Sigalas, Marios Konstantoudakis</li>
+                                <li>🎓 Mentor: Diomidis Katzourakis</li>
+                                <li>📰 Featured in: <a href="https://www.cnn.gr/ellada/story/420605/polytexneio-kritis-evropaiki-protia-se-protzekt-foititon-pou-syllegei-skoupidia" target="_blank">CNN Greece</a>, <a href="https://www.youtube.com/watch?v=sZXN8nyO7lI" target="_blank">Local Media</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Vision</div>
+                            <h4>Looking Forward</h4>
+                            <p>WATER2030 remains a comprehensive vision for autonomous marine cleanup. While the prototype demonstrates technical feasibility, the full scope of the project - including fleet operations, advanced AI integration, and widespread deployment - awaits realization through future research and funding opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section id="problem" class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>The Plastic Pollution Crisis</h2>
+                <p>Addressing the critical need for autonomous water cleanup solutions</p>
+            </div>
+            <div class="section-content">
+                <p>Despite EU policy goals to prevent waste, plastic packaging waste continues to increase. The Mediterranean Sea faces a particular crisis, with nearly 80% of microplastic pollution originating from land sources.</p>
+                
+                <div class="problem-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">700+</div>
+                        <div class="stat-label">Tons of plastic entering Mediterranean daily</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100B</div>
+                        <div class="stat-label">Surface floating plastic items in Balearic islands study</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50%</div>
+                        <div class="stat-label">EU target reduction in marine plastic litter</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">188kg</div>
+                        <div class="stat-label">Packaging waste per capita (2021)</div>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="./figs/Fig1.png" alt="Trash waste drift in harbors" loading="lazy">
+                        <div class="image-caption">Trash-waste drift in harbors and stagnated oil spills in busy coastal areas</div>
+                    </div>
+                </div>
+
+                <h3>Key Challenges</h3>
+                <ul style="margin: 1rem 0; padding-left: 2rem;">
+                    <li>Increasing plastic waste generation despite prevention policies</li>
+                    <li>Mediterranean Sea comparable to subtropical gyre accumulation zones</li>
+                    <li>Limited attempts to reduce existing stock of maritime plastic litter</li>
+                    <li>Need for cost-effective, scalable autonomous harvesting solutions</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Solution Overview -->
+        <section id="solution" class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>WATER2030 Solution</h2>
+                <p>Autonomous water waste harvesting platform with minimal human supervision</p>
+            </div>
+            <div class="section-content">
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🚁</div>
+                        <h3>TFV Platform</h3>
+                        <p>Prototype <span class="abbr-tooltip" data-tooltip="Trash Feaster Vessel">TFV</span> with expandable architecture for autonomous waste harvesting</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🏗️</div>
+                        <h3>Infrastructure</h3>
+                        <p>Develop supporting infrastructure including docking stations, communication networks, and user interfaces</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📋</div>
+                        <h3>Operations</h3>
+                        <p>Operational guidelines, training protocols, and comprehensive legal framework study</p>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="./figs/Fig2.png" alt="TFV Concept Design" loading="lazy">
+                        <div class="image-caption">3D concept design of the Trash Feaster Vessel (TFV) with autonomous navigation capabilities</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="./figs/Fig3.png" alt="Collaborative TFV Operation" loading="lazy">
+                        <div class="image-caption">Collaborative trash collecting with multiple TFVs and support infrastructure</div>
+                    </div>
+                </div>
+
+                <h3>Design Principles</h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>🛡️ Safety First</h3>
+                        <ul>
+                            <li>Failsafe design with Return-to-Base functionality</li>
+                            <li>Fault tolerant systems</li>
+                            <li>COLREGs compliance</li>
+                            <li>Wildlife protection measures</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>💰 Cost Effective</h3>
+                        <ul>
+                            <li>Target: <20k€ manufacturing cost</li>
+                            <li>Low maintenance requirements</li>
+                            <li>Minimal human supervision</li>
+                            <li>Scalable production design</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🔧 High Reliability</h3>
+                        <ul>
+                            <li>15,000 km operational lifespan</li>
+                            <li>Redundant critical systems</li>
+                            <li>75%+ uptime target</li>
+                            <li>Smart diagnostics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Details -->
+        <section id="technical" class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>Technical Architecture</h2>
+                <p>Advanced autonomy stack with AI-powered perception and planning</p>
+            </div>
+            <div class="section-content">
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="./figs/Fig4.png" alt="TFV System Architecture" loading="lazy">
+                        <div class="image-caption">TFV System architecture with redundancy in energy and communication domains</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="./figs/Fig5.png" alt="Autonomy Stack" loading="lazy">
+                        <div class="image-caption">Autonomy stack architecture showing perception, behavior, and planning subsystems</div>
+                    </div>
+                </div>
+
+                <h3>Platform Specifications</h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>🚢 Physical Design</h3>
+                        <ul>
+                            <li>Unsinkable catamaran hull design</li>
+                            <li><40kg empty weight, <2m² footprint</li>
+                            <li>360° rotatable jet thrusters</li>
+                            <li>Retractable sensor tower</li>
+                            <li>Anti-capsize design</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🧠 Autonomy Features</h3>
+                        <ul>
+                            <li>Computer vision waste detection</li>
+                            <li>YOLO/R-CNN object recognition</li>
+                            <li>Real-time path planning</li>
+                            <li>GNSS + sensor fusion localization</li>
+                            <li>Generative AI behavior modeling</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>⚡ Performance Targets</h3>
+                        <ul>
+                            <li>>0.4 m/s harvesting speed</li>
+                            <li>15kg/50L waste capacity</li>
+                            <li>3+ hours operation time</li>
+                            <li>5km cruise range</li>
+                            <li>Solar + battery power</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Autonomy Operation Space (AOS)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Maturity Level</th>
+                            <th>Wave Height</th>
+                            <th>Wind Speed</th>
+                            <th>Visibility</th>
+                            <th>Environment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>M1 (Initial)</strong></td>
+                            <td>&lt;0.1m</td>
+                            <td>&lt;11 km/h</td>
+                            <td>&gt;500m</td>
+                            <td>Marinas, harbors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M2 (Advanced)</strong></td>
+                            <td>&lt;0.2m</td>
+                            <td>&lt;19 km/h</td>
+                            <td>&gt;500m</td>
+                            <td>Docks, lakes, bays</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M3 (Vision)</strong></td>
+                            <td>&lt;0.3m</td>
+                            <td>&lt;19 km/h</td>
+                            <td>&gt;200m</td>
+                            <td>Coastlines, estuaries</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Development Approach</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Phase 1</div>
+                            <h4>Requirements & Architecture</h4>
+                            <p>Define system requirements, develop platform architecture, and establish safety protocols.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Phase 2</div>
+                            <h4>Prototype Development</h4>
+                            <p>Build and test initial TFV prototype with basic autonomy capabilities in controlled environments.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Phase 3</div>
+                            <h4>AI Integration</h4>
+                            <p>Implement advanced perception, behavior modeling, and planning algorithms using machine learning.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Phase 4</div>
+                            <h4>Field Testing</h4>
+                            <p>Extensive testing in real marine environments with iterative improvements and validation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>Research Team</h2>
+                <p>Expertise in autonomous systems, AI, and environmental engineering</p>
+            </div>
+            <div class="section-content">
+                <div class="team-card">
+                    <div class="team-member">
+                        <h3>Diomidis Katzourakis</h3>
+                        <div class="team-role">Principal Investigator & Project Lead</div>
+                        <p>See <a href="../index.html" style="color: var(--water-blue-dark); text-decoration: underline;">about Diomidis Katzourakis</a> for full bio and contact details.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h3>Pierre Gourdain</h3>
+                        <div class="team-role">Associate Researcher - Stakeholder Management & Compliance</div>
+                        <p>10+ years building 200m$+ revenue organizations in technology and logistics. Former French Ministry of Environment. Leading stakeholder management and regulatory compliance efforts.</p>
+                        <ul style="margin-top: 1rem;">
+                            <li>📧 pierre.gourdain [at] gmail [dot] com</li>
+                            <li>🎓 IEP Paris Master's, INSEAD MBA</li>
+                            <li>🌍 Multilingual: English, German, French, Greek</li>
+                        </ul>
+                    </div>
+
+                    <div class="team-member">
+                        <h3>Ernesto Sigalas</h3>
+                        <div class="team-role">Lead Developer - TFV Prototype</div>
+                        <p>Lead developer of the award-winning Trash Feaster Vessel prototype at Technical University of Crete. Successfully demonstrated autonomous waste collection capabilities in controlled environments.</p>
+                    </div>
+                </div>
+
+                <h3>Collaboration Network</h3>
+                <p>WATER2030 emphasizes collaborative development with governmental and non-governmental organizations, academic institutions, and existing water surface cleaning industries. The vision is global deployment of TFV systems wherever suitable Autonomy Operation Spaces can be established.</p>
+            </div>
+        </section>
+
+        <!-- Impact & Vision -->
+        <section class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>Environmental Impact</h2>
+                <p>Scalable solution for global water cleanup initiatives</p>
+            </div>
+            <div class="section-content">
+                <h3>Feasibility Example: Mediterranean Coastline</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Target Value</th>
+                            <th>Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Coastline Coverage</td>
+                            <td>46,000 km × 100m width</td>
+                            <td>4,600 km² cleaning area</td>
+                        </tr>
+                        <tr>
+                            <td>Fleet Size</td>
+                            <td>~650 TFVs</td>
+                            <td>Complete coverage in 4 years</td>
+                        </tr>
+                        <tr>
+                            <td>Total Mission Cost</td>
+                            <td>&lt;40 million €</td>
+                            <td>Cost-effective large-scale deployment</td>
+                        </tr>
+                        <tr>
+                            <td>Manufacturing Target</td>
+                            <td>&lt;20k € per TFV</td>
+                            <td>Scalable production economics</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Key Innovations</h3>
+                <ul style="margin: 2rem 0; padding-left: 2rem;">
+                    <li><strong>Generative AI Integration:</strong> Advanced behavior modeling and explainable decision-making</li>
+                    <li><strong>Open Source Platform:</strong> Collaborative development model for global adoption</li>
+                    <li><strong>Systems Engineering:</strong> Proven automotive industry methodologies applied to marine robotics</li>
+                    <li><strong>Cost Optimization:</strong> Designed for mass production and minimal operational costs</li>
+                    <li><strong>Environmental Focus:</strong> Wildlife-safe design with ecosystem preservation priority</li>
+                </ul>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>🎯 Primary Targets</h3>
+                        <ul>
+                            <li>River mouths and estuaries</li>
+                            <li>Ports and marina areas</li>
+                            <li>Tourist coastal zones</li>
+                            <li>Natura2000 protected sites</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🔬 Research Applications</h3>
+                        <ul>
+                            <li>Microplastic monitoring</li>
+                            <li>Water quality assessment</li>
+                            <li>Marine ecosystem mapping</li>
+                            <li>Pollution source tracking</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🌍 Global Vision</h3>
+                        <ul>
+                            <li>Open-source technology platform</li>
+                            <li>International collaboration</li>
+                            <li>Scalable manufacturing</li>
+                            <li>Policy framework development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- State of the Art -->
+        <section class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>State of the Art</h2>
+                <p>Building upon existing solutions with advanced autonomy</p>
+            </div>
+            <div class="section-content">
+                <h3>Current Industry Solutions</h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>🌊 The Ocean Cleanup</h3>
+                        <ul>
+                            <li>Interceptor solutions for rivers</li>
+                            <li>Solar-powered conveyor systems</li>
+                            <li>Barrier and tender combinations</li>
+                            <li>Focus on large-scale operations</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🤖 Ranmarine WasteShark</h3>
+                        <ul>
+                            <li>Predefined path following</li>
+                            <li>SharkPod docking concept</li>
+                            <li>Commercial deployment</li>
+                            <li>Limited autonomy features</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🦾 Academic Research</h3>
+                        <ul>
+                            <li>Computer vision for waste detection</li>
+                            <li>LiDAR obstacle avoidance</li>
+                            <li>ROS-based control systems</li>
+                            <li>Limited real-world deployment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>WATER2030 Advantages</h3>
+                <ul style="margin: 2rem 0; padding-left: 2rem;">
+                    <li><strong>Advanced AI Integration:</strong> Generative AI for behavior modeling and decision explanation</li>
+                    <li><strong>Automotive-Grade Engineering:</strong> Proven systems engineering from autonomous vehicle industry</li>
+                    <li><strong>Cost-Optimized Design:</strong> Target manufacturing cost enables large-scale deployment</li>
+                    <li><strong>Fault-Tolerant Architecture:</strong> Multiple redundancy levels for reliable autonomous operation</li>
+                    <li><strong>Open Source Approach:</strong> Collaborative development for global impact</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>Technical Implementation</h2>
+                <p>Advanced perception, planning, and control systems</p>
+            </div>
+            <div class="section-content">
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="./figs/Fig6.png" alt="GAI-aided TFV Behavior" loading="lazy">
+                        <div class="image-caption">Generative AI aided TFV ego behavior system with context translation and supervisory monitoring</div>
+                    </div>
+                </div>
+
+                <h3>Perception System</h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>🔍 Computer Vision</h3>
+                        <ul>
+                            <li>YOLO object detection</li>
+                            <li>Semantic segmentation</li>
+                            <li>Real-time waste classification</li>
+                            <li>Marine environment adaptation</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>📡 Sensor Fusion</h3>
+                        <ul>
+                            <li>Multi-camera arrays</li>
+                            <li>LiDAR for obstacle detection</li>
+                            <li>Underwater sonar systems</li>
+                            <li>GNSS + IMU localization</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🎯 Target Detection</h3>
+                        <ul>
+                            <li>Surface plastic detection (4m range)</li>
+                            <li>Semi-submerged waste (2m range)</li>
+                            <li>90% detection confidence</li>
+                            <li>Microplastic filtering</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Planning & Control</h3>
+                <p>The TFV uses advanced path planning algorithms combining global route optimization with local obstacle avoidance. The system employs convex optimization techniques for real-time trajectory generation while maintaining compliance with maritime regulations (COLREGs).</p>
+
+                <h3>Software Architecture</h3>
+                <ul style="margin: 2rem 0; padding-left: 2rem;">
+                    <li><strong>ROS Framework:</strong> Robot Operating System as the backbone</li>
+                    <li><strong>Machine Learning:</strong> PyTorch/TensorFlow for AI models</li>
+                    <li><strong>Real-time Control:</strong> Extended Kalman Filter for state estimation</li>
+                    <li><strong>Communication:</strong> High-bandwidth primary + RF backup</li>
+                    <li><strong>Simulation:</strong> Gazebo for development and testing</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Operational Modes -->
+        <section class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>Operational Modes</h2>
+                <p>Flexible operation from manual control to full autonomy</p>
+            </div>
+            <div class="section-content">
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🎮</div>
+                        <h3>Manual Mode</h3>
+                        <p>Direct operator control via high-reliability radio interface for development and complex scenarios</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🤝</div>
+                        <h3>Semi-Autonomous</h3>
+                        <p>Mixed control with operator override capabilities and waypoint adjustment for supervised operation</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🤖</div>
+                        <h3>Autonomous Mode</h3>
+                        <p>Full autonomous operation with route planning, waste collection, and charging decisions</p>
+                    </div>
+                </div>
+
+                <h3>Day-in-the-Life Scenario</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Mission Start</div>
+                            <h4>Area Selection & Route Planning</h4>
+                            <p>TFV receives mission dispatch via operator prompt, scheduled cleaning, or autonomous weather-triggered cleaning detection.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Navigation</div>
+                            <h4>Autonomous Route Execution</h4>
+                            <p>Optimized route considering static obstacles, charging needs, waste disposal, and energy from solar panels.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Collection</div>
+                            <h4>Waste Detection & Harvesting</h4>
+                            <p>Local path planning for maximum coverage, waste detection, and conveyor belt collection with wildlife protection.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Return</div>
+                            <h4>Autonomous Return to Base</h4>
+                            <p>Return to docking station for charging and waste disposal, or safe anchoring in case of system failures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Vision -->
+        <section class="content-section animate-on-scroll">
+            <div class="section-header">
+                <h2>Future Vision</h2>
+                <p>Collaborative autonomous systems for comprehensive marine cleanup</p>
+            </div>
+            <div class="section-content">
+                <p>Beyond WATER2030, the vision extends to collaborative fleets of autonomous vessels working together with supporting infrastructure for comprehensive marine environment restoration.</p>
+
+                <h3>Collaborative System Components</h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>🚢 TFV Fleet</h3>
+                        <ul>
+                            <li>Multiple vessels working in coordination</li>
+                            <li>Shared mission planning and execution</li>
+                            <li>Dynamic task allocation</li>
+                            <li>Swarm intelligence behaviors</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🏭 TFPod Infrastructure</h3>
+                        <ul>
+                            <li>Autonomous floating base stations</li>
+                            <li>Solar panel arrays for energy</li>
+                            <li>Hydrogen generation capabilities</li>
+                            <li>Multi-vessel docking and charging</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <h3>🚁 TFDrone Scouts</h3>
+                        <ul>
+                            <li>Aerial waste detection and mapping</li>
+                            <li>Real-time ocean monitoring</li>
+                            <li>Fleet coordination support</li>
+                            <li>Extended range reconnaissance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Global Impact Potential</h3>
+                <p>With successful development and deployment, WATER2030 technology could be adapted for various marine environments worldwide, from river systems to coastal areas and eventually open ocean applications. The open-source approach ensures global accessibility and collaborative improvement.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--ocean-deep); color: white; padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <h3 style="margin-bottom: 1rem;">WATER2030 Project</h3>
+            <p style="margin-bottom: 2rem; opacity: 0.8;">Water Autonomous Treatment and Environmental Restoration</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="../index.html" style="color: var(--water-blue-light); text-decoration: none;">← Back to Enginerd</a>
+                <a href="mailto:dkatzourakis@tuc.gr" style="color: var(--water-blue-light); text-decoration: none;">Contact Team</a>
+                <a href="https://www.i2a.tuc.gr/" target="_blank" style="color: var(--water-blue-light); text-decoration: none;">I2A Systems Group</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if elements are already in viewport
+            setTimeout(() => {
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+
+        // Helper function to check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Console branding
+        console.log('🌊 WATER2030 - Water Autonomous Treatment and Environmental Restoration');
+        console.log('🤖 Advanced autonomous surface vessel for marine plastic cleanup');
+        console.log('🔬 Research project by Technical University of Crete');
+        console.log('📧 Contact: diomkatz [at] gmail [dot] com');
+        console.log('🔗 Part of Enginerd R&D Platform');
+    </script>
+</body>
+</html>
