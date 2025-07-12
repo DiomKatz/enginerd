@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dpilot Hardware Interface Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+        }
+        
+        .pinout-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .pinout-table th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .pinout-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .pinout-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .pinout-table tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .code-block .comment {
+            color: #95a5a6;
+        }
+        
+        .code-block .keyword {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .code-block .string {
+            color: #f39c12;
+        }
+        
+        .code-block .number {
+            color: #3498db;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        
+        .highlight-box h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
+        
+        .device-card {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .device-card h4 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .status-drone {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .status-base {
+            background: #8e44ad;
+            color: white;
+        }
+        
+        .status-shared {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .architecture-diagram {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: monospace;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 15px;
+            }
+            
+            .pinout-table {
+                font-size: 0.9em;
+            }
+            
+            .code-block {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚁 dpilot Hardware Interface</h1>
+            <p>ESP32 Dual-Role Flight Telemetry System - Hardware Connections & Initialization</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>🏗️ System Architecture Overview</h2>
+                <div class="architecture-diagram">
+                    <strong>Drone ESP32 (Heltec WiFi LoRa 32 V3)</strong><br>
+                    ├── I²C Bus 1: MPU6050 IMU (SDA=47, SCL=48)<br>
+                    ├── I²C Bus 2: OLED Display (SDA_OLED, SCL_OLED)<br>
+                    ├── SPI Bus 1: LoRa Module (Built-in)<br>
+                    ├── SPI Bus 2: SD Card (CS=26, MOSI=42, SCLK=46, MISO=45)<br>
+                    ├── Serial 1: USB Serial (115200 baud)<br>
+                    ├── Serial 2: GPS Module (RX=19, TX=20, 38400 baud)<br>
+                    └── ADC: 7-channel analog inputs (A0-A6)<br>
+                    <br>
+                    <strong>Base Station ESP32 (Heltec WiFi LoRa 32 V3)</strong><br>
+                    ├── I²C Bus 1: OLED Display (SDA_OLED, SCL_OLED)<br>
+                    ├── SPI Bus 1: LoRa Module (Built-in)<br>
+                    ├── SPI Bus 2: TFT Display (CS=26, DC=45, SCLK=46, MOSI=42)<br>
+                    └── Serial 1: USB Serial (115200 baud)
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>🎯 Automatic Role Detection</h4>
+                    System automatically determines role based on MPU6050 presence:
+                    <br><strong>MPU6050 Detected</strong> → Drone Mode (sensor collection, SD logging)
+                    <br><strong>No MPU6050</strong> → Base Station Mode (command relay, TFT display)
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📡 Complete Pin Assignment Tables</h2>
+                
+                <div class="device-card">
+                    <h4>🚁 Drone Configuration <span class="status-badge status-drone">DRONE MODE</span></h4>
+                    <table class="pinout-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Interface</th>
+                                <th>ESP32 Pins</th>
+                                <th>Configuration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MPU6050 IMU</strong></td>
+                                <td>I²C Bus 1 (Wire1)</td>
+                                <td>SDA=47, SCL=48</td>
+                                <td>±8g accel, ±500°/s gyro, 10Hz filter</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GPS Module</strong></td>
+                                <td>Serial2</td>
+                                <td>RX=19, TX=20</td>
+                                <td>38400 baud, 8N1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SD Card</strong></td>
+                                <td>SPI Bus 2 (spi1)</td>
+                                <td>CS=26, MOSI=42, SCLK=46, MISO=45</td>
+                                <td>Time-controlled logging, auto file management</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Analog Sensors</strong></td>
+                                <td>ADC</td>
+                                <td>A0(12), A1(13), A2(14), A3(15), A4(16), A5(17), A6(18)</td>
+                                <td>7-channel 8-bit ADC, 0-255 range</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Logging Button</strong></td>
+                                <td>Digital Input</td>
+                                <td>GPIO 41 (Pull-up)</td>
+                                <td>Single-button start/stop logging</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OLED Display</strong></td>
+                                <td>I²C Bus 2</td>
+                                <td>SDA_OLED, SCL_OLED</td>
+                                <td>128x64 status display</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LoRa Module</strong></td>
+                                <td>SPI Bus 1 (Built-in)</td>
+                                <td>Integrated</td>
+                                <td>915MHz, 21dBm, SF7, BW=500kHz, AES-128</td>
+                            </tr>
+                            <tr>
+                                <td><strong>USB Serial</strong></td>
+                                <td>Serial (Built-in)</td>
+                                <td>USB Port</td>
+                                <td>115200 baud, unified state packets (50Hz)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="device-card">
+                    <h4>📡 Base Station Configuration <span class="status-badge status-base">BASE STATION</span></h4>
+                    <table class="pinout-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Interface</th>
+                                <th>ESP32 Pins</th>
+                                <th>Configuration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>TFT Display</strong></td>
+                                <td>SPI Bus 2 (spiTFT)</td>
+                                <td>CS=26, DC=45, SCLK=46, MOSI=42</td>
+                                <td>240x320 ST7789, G-G diagram, flight instruments</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OLED Display</strong></td>
+                                <td>I²C Bus 1</td>
+                                <td>SDA_OLED, SCL_OLED</td>
+                                <td>128x64 system status</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LoRa Module</strong></td>
+                                <td>SPI Bus 1 (Built-in)</td>
+                                <td>Integrated</td>
+                                <td>915MHz, 21dBm, SF7, BW=500kHz, AES-128</td>
+                            </tr>
+                            <tr>
+                                <td><strong>USB Serial</strong></td>
+                                <td>Serial (Built-in)</td>
+                                <td>USB Port</td>
+                                <td>115200 baud, binary command interface</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🔧 Hardware Initialization Code</h2>
+                
+                <h3>🚁 Drone Mode Initialization</h3>
+                <div class="code-block">
+<span class="comment">// MPU6050 IMU Initialization (I²C Bus 1)</span>
+<span class="keyword">static const uint8_t</span> SCL_IMU = <span class="number">48</span>;
+<span class="keyword">static const uint8_t</span> SDA_IMU = <span class="number">47</span>;
+
+Wire1.begin(SDA_IMU, SCL_IMU);
+<span class="keyword">while</span> (!mpu.begin(MPU6050_I2CADDR_DEFAULT, &Wire1, <span class="number">0</span>)) {
+    delay(<span class="number">100</span>);
+    Serial.println(<span class="string">"Failed to find MPU6050 chip"</span>);
+}
+
+<span class="comment">// Configure MPU6050 settings</span>
+mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
+mpu.setGyroRange(MPU6050_RANGE_500_DEG);
+mpu.setFilterBandwidth(MPU6050_BAND_10_HZ);
+
+<span class="comment">// GPS Module Initialization (Serial2)</span>
+<span class="keyword">#define</span> Serial2RxPin <span class="number">19</span>
+<span class="keyword">#define</span> Serial2TxPin <span class="number">20</span>
+
+Serial2.begin(<span class="number">38400</span>, SERIAL_8N1, Serial2RxPin, Serial2TxPin);
+
+<span class="comment">// SD Card Initialization (SPI Bus 2)</span>
+<span class="keyword">#define</span> SD_CS <span class="number">26</span>
+<span class="keyword">#define</span> SD_MOSI <span class="number">42</span>
+<span class="keyword">#define</span> SD_SCLK <span class="number">46</span>
+<span class="keyword">#define</span> SD_MISO <span class="number">45</span>
+
+SPIClass spi1;
+spi1.begin(SD_SCLK, SD_MISO, SD_MOSI, SD_CS);
+<span class="keyword">while</span> (!SD.begin(SD_CS, spi1)) {
+    delay(<span class="number">100</span>);
+    Serial.println(<span class="string">"Failed to find SD card"</span>);
+}
+
+<span class="comment">// Analog Input Initialization</span>
+<span class="keyword">#define</span> analogInPin0 <span class="number">12</span>  <span class="comment">// A0</span>
+<span class="keyword">#define</span> analogInPin1 <span class="number">13</span>  <span class="comment">// A1</span>
+<span class="keyword">#define</span> analogInPin2 <span class="number">14</span>  <span class="comment">// A2</span>
+<span class="keyword">#define</span> analogInPin3 <span class="number">15</span>  <span class="comment">// A3</span>
+<span class="keyword">#define</span> analogInPin4 <span class="number">16</span>  <span class="comment">// A4</span>
+<span class="keyword">#define</span> analogInPin5 <span class="number">17</span>  <span class="comment">// A5</span>
+<span class="keyword">#define</span> analogInPin6 <span class="number">18</span>  <span class="comment">// A6</span>
+
+pinMode(A0, INPUT); pinMode(A1, INPUT); pinMode(A2, INPUT);
+pinMode(A3, INPUT); pinMode(A4, INPUT); pinMode(A5, INPUT);
+pinMode(A6, INPUT);
+
+<span class="comment">// Logging Button Initialization</span>
+<span class="keyword">#define</span> BUTTON_LOG <span class="number">41</span>
+pinMode(BUTTON_LOG, INPUT_PULLUP);
+                </div>
+                
+                <h3>📡 Base Station Mode Initialization</h3>
+                <div class="code-block">
+<span class="comment">// TFT Display Initialization (SPI Bus 2)</span>
+<span class="keyword">#define</span> TFT_CS    <span class="number">26</span>
+<span class="keyword">#define</span> TFT_DC    <span class="number">45</span>
+<span class="keyword">#define</span> TFT_RST   <span class="number">-1</span>  <span class="comment">// No reset pin</span>
+<span class="keyword">#define</span> TFT_SCLK  <span class="number">46</span>
+<span class="keyword">#define</span> TFT_MOSI  <span class="number">42</span>
+
+SPIClass spiTFT = SPIClass(HSPI);
+Adafruit_ST7789 tft = Adafruit_ST7789(&spiTFT, TFT_CS, TFT_DC, TFT_RST);
+
+<span class="comment">// Initialize SPI for TFT</span>
+spiTFT.begin(TFT_SCLK, <span class="number">-1</span>, TFT_MOSI, TFT_CS);
+
+<span class="comment">// Initialize the display</span>
+tft.init(<span class="number">240</span>, <span class="number">320</span>);  <span class="comment">// 240x320 resolution</span>
+tft.setRotation(<span class="number">0</span>);
+tft.fillScreen(ST77XX_BLACK);
+
+<span class="comment">// Initialize default reference command for base station</span>
+initializeDefaultReferenceCommand();
+                </div>
+                
+                <h3>🔄 Shared Components Initialization</h3>
+                <div class="code-block">
+<span class="comment">// OLED Display Initialization (Both modes)</span>
+<span class="keyword">static</span> SSD1306Wire display(<span class="number">0x3c</span>, <span class="number">500000</span>, SDA_OLED, SCL_OLED, GEOMETRY_128_64, RST_OLED);
+
+VextON();  <span class="comment">// Enable Vext power</span>
+delay(<span class="number">100</span>);
+display.init();
+display.setFont(ArialMT_Plain_10);
+display.clear();
+
+<span class="comment">// LoRa Module Initialization (Both modes)</span>
+<span class="keyword">#define</span> RF_FREQUENCY <span class="number">915000000</span>  <span class="comment">// Hz</span>
+<span class="keyword">#define</span> TX_OUTPUT_POWER <span class="number">21</span>      <span class="comment">// dBm</span>
+<span class="keyword">#define</span> LORA_BANDWIDTH <span class="number">2</span>         <span class="comment">// 500 kHz</span>
+<span class="keyword">#define</span> LORA_SPREADING_FACTOR <span class="number">7</span>  <span class="comment">// SF7</span>
+<span class="keyword">#define</span> LORA_CODINGRATE <span class="number">1</span>        <span class="comment">// 4/5</span>
+
+Radio.Init(&RadioEvents);
+Radio.SetChannel(RF_FREQUENCY);
+Radio.SetTxConfig(MODEM_LORA, TX_OUTPUT_POWER, <span class="number">0</span>, LORA_BANDWIDTH,
+                  LORA_SPREADING_FACTOR, LORA_CODINGRATE, <span class="number">8</span>, <span class="keyword">false</span>,
+                  <span class="keyword">true</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">false</span>, <span class="number">3000</span>);
+
+<span class="comment">// AES-128 Encryption Initialization</span>
+<span class="keyword">byte</span> key[<span class="number">16</span>] = { <span class="number">0x00</span>, <span class="number">0x01</span>, <span class="number">0x02</span>, <span class="number">0x03</span>, <span class="number">0x24</span>, <span class="number">0x05</span>, <span class="number">0x06</span>, <span class="number">0x07</span>,
+                 <span class="number">0x08</span>, <span class="number">0x09</span>, <span class="number">0x3A</span>, <span class="number">0x0B</span>, <span class="number">0x0C</span>, <span class="number">0x0D</span>, <span class="number">0x0E</span>, <span class="number">0x2F</span> };
+aes128.setKey(key, <span class="number">16</span>);
+
+<span class="comment">// USB Serial Initialization</span>
+Serial.begin(<span class="number">115200</span>);
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🎯 Role Detection System</h2>
+                <div class="code-block">
+<span class="comment">// Automatic Role Detection Based on Hardware</span>
+<span class="keyword">typedef enum</span> {
+  SYSTEM_ROLE_UNKNOWN = <span class="number">0</span>,
+  SYSTEM_ROLE_DRONE = <span class="number">1</span>,        <span class="comment">// MPU6050 detected</span>
+  SYSTEM_ROLE_BASE_STATION = <span class="number">2</span>  <span class="comment">// No MPU6050 detected</span>
+} system_role_t;
+
+<span class="keyword">void</span> determineSystemRole() {
+  <span class="keyword">if</span> (MPUInitialized) {
+    systemRole = SYSTEM_ROLE_DRONE;
+    Serial.println(<span class="string">"System Role: DRONE (MPU6050 detected)"</span>);
+  } <span class="keyword">else</span> {
+    systemRole = SYSTEM_ROLE_BASE_STATION;
+    Serial.println(<span class="string">"System Role: BASE_STATION (No MPU6050 detected)"</span>);
+  }
+}
+
+<span class="comment">// Convenience functions</span>
+<span class="keyword">bool</span> isDroneMode() { <span class="keyword">return</span> (systemRole == SYSTEM_ROLE_DRONE); }
+<span class="keyword">bool</span> isBaseStationMode() { <span class="keyword">return</span> (systemRole == SYSTEM_ROLE_BASE_STATION); }
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>⚡ Performance Specifications</h2>
+                
+                <div class="device-card">
+                    <h4>📊 Communication Performance</h4>
+                    <table class="pinout-table">
+                        <thead>
+                            <tr>
+                                <th>Interface</th>
+                                <th>Speed/Frequency</th>
+                                <th>Data Type</th>
+                                <th>Performance Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>LoRa 915MHz</strong></td>
+                                <td>SF7, BW=500kHz, 21dBm</td>
+                                <td>Encrypted binary packets</td>
+                                <td>Up to 2km range, AES-128 security</td>
+                            </tr>
+                            <tr>
+                                <td><strong>USB Serial</strong></td>
+                                <td>115200 baud</td>
+                                <td>Unified state packets (60 bytes)</td>
+                                <td>50Hz continuous stream from drone</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GPS Serial</strong></td>
+                                <td>38400 baud</td>
+                                <td>NMEA sentences</td>
+                                <td><3m accuracy, position/time sync</td>
+                            </tr>
+                            <tr>
+                                <td><strong>MPU6050 I²C</strong></td>
+                                <td>Time-controlled 50Hz</td>
+                                <td>IMU data with 4Hz anti-aliasing filter</td>
+                                <td>±8g accel, ±500°/s gyro, 10Hz bandwidth</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SD Card SPI</strong></td>
+                                <td>High-speed SPI</td>
+                                <td>CSV logging, auto file management</td>
+                                <td>Single-button operation, 20ms intervals</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>🔧 Key Implementation Features</h4>
+                    <strong>Time-Controlled Sampling:</strong> Precise 50Hz (20ms) intervals for all data operations<br>
+                    <strong>Anti-Aliasing Filtering:</strong> 4Hz low-pass filter prevents LoRa transmission artifacts<br>
+                    <strong>Unified State Architecture:</strong> 60-byte packets containing complete drone state<br>
+                    <strong>Smart File Management:</strong> Auto-incrementing log files with immediate start/stop<br>
+                    <strong>Dual Data Streams:</strong> Raw data for ground control, filtered data for LoRa<br>
+                    <strong>Hardware-Based Role Detection:</strong> Automatic drone/base station configuration
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🔗 Interface Summary</h2>
+                <div class="architecture-diagram">
+                    <strong>ESP32 Resource Utilization:</strong><br><br>
+                    
+                    <strong>I²C Buses:</strong><br>
+                    • Wire1: MPU6050 IMU (SDA=47, SCL=48) [Drone Only]<br>
+                    • Wire: OLED Display (SDA_OLED, SCL_OLED) [Both]<br><br>
+                    
+                    <strong>SPI Buses:</strong><br>
+                    • Built-in SPI: LoRa Module [Both]<br>
+                    • spi1/spiTFT: SD Card [Drone] or TFT Display [Base Station]<br><br>
+                    
+                    <strong>Serial Interfaces:</strong><br>
+                    • Serial: USB Communication (115200) [Both]<br>
+                    • Serial2: GPS Module (38400) [Drone Only]<br><br>
+                    
+                    <strong>Digital I/O:</strong><br>
+                    • GPIO 41: Logging Button [Drone Only]<br>
+                    • A0-A6: 7-channel ADC [Drone Only]
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>📚 dpilot Flight Telemetry System - Hardware Interface Documentation</p>
+            <p>🔗 Complete source code and detailed protocol documentation available separately</p>
+        </div>
+    </div>
+</body>
+</html>
