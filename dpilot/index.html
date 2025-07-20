@@ -1147,30 +1147,36 @@ Pusher Motor Section:
                 </style>
                 <h2 class="section-title">System Demonstrations</h2>
                 <div class="video-gallery">
-                    <div class="video-card">
-                        <div class="video-placeholder" onclick="alert('DPilot unified state demo video coming soon!')">▶️</div>
-                        <div class="video-info">
-                            <h4>Unified System Overlay</h4>
-                            <p>Post processed data with recorded video demonstration of 50Hz unified state communication, synchronized telemetry, and real-time web interface.</p>
-                        </div>
-                    </div>
-   
-                    <div class="video-card">
-                        <div class="video-placeholder" onclick="alert('Ground control demo video coming soon!')">▶️</div>
-                        <div class="video-info">
-                            <h4>Flying</h4>
-                            <p>Video from testing and development.</p>
-                        </div>
-                    </div>
                     
                     <div class="video-card">
-                        <div class="video-placeholder" onclick="alert('Visual odometry demo video coming soon!')">▶️</div>
-                        <div class="video-info">
-                            <h4>Visual Odometry System</h4>
-                            <p>Work in progress visual navigation demonstration showing feature detection and position estimation.</p>
-                        </div>
+                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder">▶️</div>
+                            <div class="video-info">
+                                <h4>dpilot presentation</h4>
+                                <p>Front view of the dpilot system in action.</p>
+                            </div>
+                        </a>
                     </div>
-                    
+
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder">▶️</div>
+                            <div class="video-info">
+                                <h4>Flying video 1</h4>
+                                <p>Video from testing and development.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder">▶️</div>
+                            <div class="video-info">
+                                <h4>Flying video 2</h4>
+                                <p>Video from testing and development.</p>
+                            </div>
+                        </a>
+                    </div>
 
                 </div>
                 
@@ -1417,47 +1423,122 @@ Pusher Motor Section:
                 <!-- Testing and Validation -->
                 <div class="doc-section fade-in">
                     <h3>System Testing & Validation</h3>
-                    <div class="system-images">
-                        <div class="image-card">
-                            <img src="./figs/ground_testing_setup.jpg" alt="Ground Testing" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="image-placeholder" style="display: none;">🧪</div>
-                            <div class="image-info">
-                                <h5>Ground Testing Setup</h5>
-                                <p>Bench testing and system validation</p>
-                                <small style="color: #888; font-style: italic;">File: ground_testing_setup.jpg</small>
+                    <div class="task-list">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <h5>🧪 Ground Testing</h5>
+                                <span class="task-badge">TODO</span>
                             </div>
+                            <ul>
+                                <li>Set up bench testing environment</li>
+                                <li>Validate sensor calibration and integration</li>
+                                <li>Test unified state communication</li>
+                                <li>Verify SD card logging functionality</li>
+                                <li>Benchmark power consumption</li>
+                            </ul>
                         </div>
                         
-                        <div class="image-card">
-                            <img src="./figs/range_testing_field.jpg" alt="Range Testing" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="image-placeholder" style="display: none;">📡</div>
-                            <div class="image-info">
-                                <h5>LoRa Range Testing</h5>
-                                <p>Field testing communication range and reliability</p>
-                                <small style="color: #888; font-style: italic;">File: range_testing_field.jpg</small>
+                        <div class="task-card">
+                            <div class="task-header">
+                                <h5>📡 LoRa Range Testing</h5>
+                                <span class="task-badge">TODO</span>
                             </div>
+                            <ul>
+                                <li>Perform field testing at varying distances</li>
+                                <li>Measure packet success rate vs. distance</li>
+                                <li>Test with different antenna configurations</li>
+                                <li>Optimize transmission parameters</li>
+                                <li>Document maximum reliable range</li>
+                            </ul>
                         </div>
                         
-                        <div class="image-card">
-                            <img src="./figs/flight_test_aircraft.jpg" alt="Flight Testing" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="image-placeholder" style="display: none;">🛩️</div>
-                            <div class="image-info">
-                                <h5>Flight Test Aircraft</h5>
-                                <p>Ranger with complete telemetry integration</p>
-                                <small style="color: #888; font-style: italic;">File: flight_test_aircraft.jpg</small>
+                        <div class="task-card">
+                            <div class="task-header">
+                                <h5>🛩️ Flight Testing</h5>
+                                <span class="task-badge">TODO</span>
                             </div>
+                            <ul>
+                                <li>Complete Ranger integration with telemetry</li>
+                                <li>Perform initial taxi tests</li>
+                                <li>Validate in-flight data collection</li>
+                                <li>Test visual odometry during flight</li>
+                                <li>Verify endurance and performance</li>
+                            </ul>
                         </div>
                         
-                        <div class="image-card">
-                            <img src="./figs/data_analysis_results.jpg" alt="Data Analysis" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="image-placeholder" style="display: none;">📈</div>
-                            <div class="image-info">
-                                <h5>Flight Data Analysis</h5>
-                                <p>Post-flight data visualization and metrics</p>
-                                <small style="color: #888; font-style: italic;">File: data_analysis_results.jpg</small>
+                        <div class="task-card">
+                            <div class="task-header">
+                                <h5>📈 Data Analysis & Validation</h5>
+                                <span class="task-badge">TODO</span>
                             </div>
+                            <ul>
+                                <li>Develop post-flight analysis tools</li>
+                                <li>Validate sensor accuracy and precision</li>
+                                <li>Compare visual odometry to GPS data</li>
+                                <li>Create visualization dashboards</li>
+                                <li>Document system performance metrics</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <style>
+                        .task-list {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                            gap: 1.5rem;
+                            margin: 2rem 0;
+                        }
+                        
+                        .task-card {
+                            background: #f8f9fa;
+                            border-radius: 10px;
+                            padding: 1.5rem;
+                            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                            border-left: 4px solid var(--dpilot-blue);
+                        }
+                        
+                        .task-header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 1rem;
+                            padding-bottom: 0.5rem;
+                            border-bottom: 1px solid #eee;
+                        }
+                        
+                        .task-header h5 {
+                            color: var(--dpilot-blue);
+                            margin: 0;
+                            font-size: 1.1rem;
+                        }
+                        
+                        .task-badge {
+                            background: #FFC107;
+                            color: #333;
+                            padding: 0.2rem 0.5rem;
+                            border-radius: 4px;
+                            font-size: 0.8rem;
+                            font-weight: bold;
+                        }
+                        
+                        .task-card ul {
+                            list-style-type: none;
+                            padding-left: 0.5rem;
+                        }
+                        
+                        .task-card li {
+                            padding: 0.4rem 0;
+                            position: relative;
+                            padding-left: 1.5rem;
+                        }
+                        
+                        .task-card li:before {
+                            content: "◻";
+                            position: absolute;
+                            left: 0;
+                            color: var(--dpilot-blue);
+                        }
+                    </style>
                 </div>
 
                 <!-- Assembly and Manufacturing -->
@@ -1478,31 +1559,12 @@ Pusher Motor Section:
                             <img src="./figs/3d_printing_process.jpg" alt="3D Printing" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="image-placeholder" style="display: none;">🖨️</div>
                             <div class="image-info">
-                                <h5>3D Printing Process</h5>
-                                <p>Custom component printing in PETG/ABS</p>
+                                <h5>3D Printing Parts</h5>
+                                <p>Custom component printing in PETG</p>
                                 <small style="color: #888; font-style: italic;">File: 3d_printing_process.jpg</small>
                             </div>
                         </div>
-                        
-                        <div class="image-card">
-                            <img src="./figs/component_assembly.jpg" alt="Assembly Process" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="image-placeholder" style="display: none;">🔧</div>
-                            <div class="image-info">
-                                <h5>System Assembly</h5>
-                                <p>Step-by-step integration process</p>
-                                <small style="color: #888; font-style: italic;">File: component_assembly.jpg</small>
-                            </div>
-                        </div>
-                        
-                        <div class="image-card">
-                            <img src="./figs/cable_harness_custom.jpg" alt="Cable Harness" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="image-placeholder" style="display: none;" onclick="alert('Upload: cable_harness_custom.jpg')">🔌</div>
-                            <div class="image-info">
-                                <h5>Custom Cable Harness</h5>
-                                <p>USB-C and micro USB custom cables</p>
-                                <small style="color: #888; font-style: italic;">File: cable_harness_custom.jpg</small>
-                            </div>
-                        </div>
+                                                
                     </div>
                 </div>
 
