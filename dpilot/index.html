@@ -649,10 +649,130 @@
             </div>
         </section>
 
+        <section class="content-section alt">
+            <div class="container">
+                <style>
+                    /* Override the default grid layout for video-gallery and system-images */
+                    .video-gallery, .system-images {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2rem;
+                    }
+                    
+                    /* Make each card take full width */
+                    .video-card, .image-card {
+                        width: 100%;
+                        max-width: 900px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                </style>
+                <h2 class="section-title">System Demonstrations</h2>
+                <div class="video-gallery">
+                    
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder">▶️</div>
+                            <div class="video-info">
+                                <h4>dpilot presentation</h4>
+                                <p>Front view of the dpilot system in action.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder">▶️</div>
+                            <div class="video-info">
+                                <h4>Flying video 1</h4>
+                                <p>Video from testing and development.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder">▶️</div>
+                            <div class="video-info">
+                                <h4>Flying video 2</h4>
+                                <p>Video from testing and development.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                
+                <!-- System Images Section -->
+                <h3 style="text-align: center; margin: 3rem 0 2rem; color: #333;">System Architecture & Interface</h3>
+                <div class="system-images">
+                    <div class="image-card">
+                        <img src="./figs/system_architecture_overview.jpg" alt="System Architecture" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: system_architecture_overview.jpg')">🏗️</div>
+                        <div class="image-info">
+                            <h5>Complete System Architecture</h5>
+                            <p> Ground control, telemetry and drone system overview</p>
+                            <small style="color: #888; font-style: italic;">File: system_architecture_overview.jpg</small>
+                        </div>
+                    </div>
+                    
+                    <div class="image-card">
+                        <img src="./figs/web_interface_dashboard.jpg" alt="Web Interface" style="width: 100%; height: 1000px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: web_interface_dashboard.jpg')">📱</div>
+                        <div class="image-info">
+                            <h5>Web Interface Dashboard</h5>
+                            <p>Live telemetry dashboard with smartphone-accessible controls and artificial horizon</p>
+                            <small style="color: #888; font-style: italic;">File: web_interface_dashboard.jpg</small>
+                        </div>
+                    </div>
+                    
+                    <div class="image-card">
+                        <img src="./figs/custom_pcb_design.jpg" alt="Custom PCB" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: custom_pcb_design.jpg')">🔧</div>
+                        <div class="image-info">
+                            <h5>Custom PCB Design</h5>
+                            <p>Professional 2-layer PCB with integrated ESP32, LoRa, IMU, and SD card</p>
+                            <small style="color: #888; font-style: italic;">File: custom_pcb_design.jpg</small>
+                        </div>
+                    </div>
+                    
+                    <div class="image-card">
+                        <img src="./figs/aircraft_integration_complete.jpg" alt="Aircraft Integration" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: aircraft_integration_complete.jpg')">✈️</div>
+                        <div class="image-info">
+                            <h5>Aircraft Integration</h5>
+                            <p>VolantexRC Ranger with 3D printed components and visual odometry camera</p>
+                            <small style="color: #888; font-style: italic;">File: aircraft_integration_complete.jpg</small>
+                        </div>
+                    </div>
+                    
+                    <div class="image-card">
+                        <img src="./figs/visual_odometry_processing.jpg" alt="Visual Odometry" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: visual_odometry_processing.jpg')">👁️</div>
+                        <div class="image-info">
+                            <h5>Visual Odometry Processing</h5>
+                            <p>AI camera feature detection and tracking for autonomous navigation</p>
+                            <small style="color: #888; font-style: italic;">File: visual_odometry_processing.jpg</small>
+                        </div>
+                    </div>
+                    
+                    <div class="image-card">
+                        <img src="./figs/gg_diagram_display.jpg" alt="G-G Diagram" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: gg_diagram_display.jpg')">📊</div>
+                        <div class="image-info">
+                            <h5>Real-time Flight Data</h5>
+                            <p>G-G acceleration diagrams and flight instrument displays</p>
+                            <small style="color: #888; font-style: italic;">File: gg_diagram_display.jpg</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Component Categori
+
+
         <!-- Key Features -->
         <section class="content-section">
             <div class="container">
-                <h2 class="section-title">Advanced System Features</h2>
+                <h2 class="section-title">System Features</h2>
                 <div class="features-grid">
                     <div class="feature-card fade-in">
                         <h3>🔄 Unified State Architecture</h3>
@@ -1125,127 +1245,7 @@ Pusher Motor Section:
                 </div>
             </div>
         </section>
-
-        <!-- Demo Videos -->
-        <section class="content-section alt">
-            <div class="container">
-                <style>
-                    /* Override the default grid layout for video-gallery and system-images */
-                    .video-gallery, .system-images {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 2rem;
-                    }
-                    
-                    /* Make each card take full width */
-                    .video-card, .image-card {
-                        width: 100%;
-                        max-width: 900px;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                </style>
-                <h2 class="section-title">System Demonstrations</h2>
-                <div class="video-gallery">
-                    
-                    <div class="video-card">
-                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1" target="_blank" style="text-decoration: none; color: inherit;">
-                            <div class="video-placeholder">▶️</div>
-                            <div class="video-info">
-                                <h4>dpilot presentation</h4>
-                                <p>Front view of the dpilot system in action.</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="video-card">
-                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2" target="_blank" style="text-decoration: none; color: inherit;">
-                            <div class="video-placeholder">▶️</div>
-                            <div class="video-info">
-                                <h4>Flying video 1</h4>
-                                <p>Video from testing and development.</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="video-card">
-                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3" target="_blank" style="text-decoration: none; color: inherit;">
-                            <div class="video-placeholder">▶️</div>
-                            <div class="video-info">
-                                <h4>Flying video 2</h4>
-                                <p>Video from testing and development.</p>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-                
-                <!-- System Images Section -->
-                <h3 style="text-align: center; margin: 3rem 0 2rem; color: #333;">System Architecture & Interface</h3>
-                <div class="system-images">
-                    <div class="image-card">
-                        <img src="./figs/system_architecture_overview.jpg" alt="System Architecture" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: system_architecture_overview.jpg')">🏗️</div>
-                        <div class="image-info">
-                            <h5>Complete System Architecture</h5>
-                            <p> Ground control, telemetry and drone system overview</p>
-                            <small style="color: #888; font-style: italic;">File: system_architecture_overview.jpg</small>
-                        </div>
-                    </div>
-                    
-                    <div class="image-card">
-                        <img src="./figs/web_interface_dashboard.jpg" alt="Web Interface" style="width: 100%; height: 1000px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: web_interface_dashboard.jpg')">📱</div>
-                        <div class="image-info">
-                            <h5>Web Interface Dashboard</h5>
-                            <p>Live telemetry dashboard with smartphone-accessible controls and artificial horizon</p>
-                            <small style="color: #888; font-style: italic;">File: web_interface_dashboard.jpg</small>
-                        </div>
-                    </div>
-                    
-                    <div class="image-card">
-                        <img src="./figs/custom_pcb_design.jpg" alt="Custom PCB" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: custom_pcb_design.jpg')">🔧</div>
-                        <div class="image-info">
-                            <h5>Custom PCB Design</h5>
-                            <p>Professional 2-layer PCB with integrated ESP32, LoRa, IMU, and SD card</p>
-                            <small style="color: #888; font-style: italic;">File: custom_pcb_design.jpg</small>
-                        </div>
-                    </div>
-                    
-                    <div class="image-card">
-                        <img src="./figs/aircraft_integration_complete.jpg" alt="Aircraft Integration" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: aircraft_integration_complete.jpg')">✈️</div>
-                        <div class="image-info">
-                            <h5>Aircraft Integration</h5>
-                            <p>VolantexRC Ranger with 3D printed components and visual odometry camera</p>
-                            <small style="color: #888; font-style: italic;">File: aircraft_integration_complete.jpg</small>
-                        </div>
-                    </div>
-                    
-                    <div class="image-card">
-                        <img src="./figs/visual_odometry_processing.jpg" alt="Visual Odometry" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: visual_odometry_processing.jpg')">👁️</div>
-                        <div class="image-info">
-                            <h5>Visual Odometry Processing</h5>
-                            <p>AI camera feature detection and tracking for autonomous navigation</p>
-                            <small style="color: #888; font-style: italic;">File: visual_odometry_processing.jpg</small>
-                        </div>
-                    </div>
-                    
-                    <div class="image-card">
-                        <img src="./figs/gg_diagram_display.jpg" alt="G-G Diagram" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: gg_diagram_display.jpg')">📊</div>
-                        <div class="image-info">
-                            <h5>Real-time Flight Data</h5>
-                            <p>G-G acceleration diagrams and flight instrument displays</p>
-                            <small style="color: #888; font-style: italic;">File: gg_diagram_display.jpg</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        
         <!-- System Testing & Performance -->
         <section class="content-section">
             <div class="container">
