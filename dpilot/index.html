@@ -671,6 +671,22 @@
                 <div class="video-gallery">
                     
                     <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=UCzrSTzxzCQ" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder" style="background: url('https://img.youtube.com/vi/UCzrSTzxzCQ/hqdefault.jpg') center/cover;">
+                                <div style="width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
+                                    <div style="width: 70px; height: 50px; background-color: rgba(255,0,0,0.8); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                        <div style="width: 0; height: 0; border-top: 10px solid transparent; border-left: 20px solid white; border-bottom: 10px solid transparent; margin-left: 5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h4>Latest: Autonomous Flight with FHSS</h4>
+                                <p>Custom dpilot (HW, SW and control) telemetry and flight control system on Volantex Phoenix 2000mm. Features: enhanced video logging (higher quality H.264), complete autonomy stack (routing → planning → control → actuation), and frequency hopping on LoRa transmission for interference mitigation. Hardware: ESP32, MPU6050, SD logging, GPS, QMC5883L compass.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="video-card">
                         <a href="https://youtu.be/gD0sjTvzpPA" target="_blank" style="text-decoration: none; color: inherit;">
                             <div class="video-placeholder" style="background: url('https://img.youtube.com/vi/gD0sjTvzpPA/hqdefault.jpg') center/cover;"></div>
                                 <div style="width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
@@ -728,11 +744,31 @@
                     </div>
                     
                     <div class="image-card">
+                        <img src="./figs/web_interface_dashboard map.jpg" alt="Interactive Map" style="width: 100%; height: 1000px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: web_interface_dashboard map.jpg')">🗺️</div>
+                        <div class="image-info">
+                            <h5>Interactive Map Interface</h5>
+                            <p>Web-based mission planning with real-time waypoint tracking and visualization</p>
+                            <small style="color: #888; font-style: italic;"></small>
+                        </div>
+                    </div>
+                    
+                    <div class="image-card">
                         <img src="./figs/aircraft_integration_complete.jpg" alt="Aircraft Integration" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="image-placeholder" style="display: none;" onclick="alert('Upload: aircraft_integration_complete.jpg')">✈️</div>
                         <div class="image-info">
                             <h5>Aircraft Integration</h5>
                             <p>VolantexRC Ranger with 3D printed components and visual odometry camera</p>
+                            <small style="color: #888; font-style: italic;"></small>
+                        </div>
+                    </div>
+                    
+                    <div class="image-card">
+                        <img src="./figs/aircraft_integration_complete_phoenix.jpg" alt="Phoenix Aircraft" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="image-placeholder" style="display: none;" onclick="alert('Upload: aircraft_integration_complete_phoenix.jpg')">✈️</div>
+                        <div class="image-info">
+                            <h5>Volantex Phoenix Platform</h5>
+                            <p>Volantex Phoenix 2000mm with dpilot system integration</p>
                             <small style="color: #888; font-style: italic;"></small>
                         </div>
                     </div>
@@ -748,70 +784,73 @@
                 <h2 class="section-title">System Features</h2>
                 <div class="features-grid">
                     <div class="feature-card fade-in">
-                        <h3>🔄 Unified State Architecture</h3>
+                        <h3>🎥 Enhanced Video Logging</h3>
                         <ul>
-                            <li>50Hz synchronized telemetry transmission</li>
-                            <li>60-byte complete state packets</li>
-                            <li>Perfect data alignment and timing</li>
-                            <li>Zero correlation issues</li>
-                            <li>Mission command integration</li>
+                            <li>Hardware H.264 encoding with frame-perfect sync</li>
+                            <li>Custom SyncLoggerOutput (&lt;1ms timestamp accuracy)</li>
+                            <li>60fps high-quality recording with telemetry</li>
+                            <li>CSV logging synchronized to video epochs</li>
+                            <li>Sony IMX500 AI Camera support (12MP)</li>
+                            <li>Visual odometry processing capability</li>
                         </ul>
                     </div>
                     
                     <div class="feature-card fade-in">
-                        <h3>📡 Advanced Communication</h3>
+                        <h3>📡 FHSS Communication System</h3>
                         <ul>
-                            <li>915MHz LoRa with 2-5km range</li>
-                            <li>AES-128 encryption security</li>
-                            <li>Anti-aliasing data processing</li>
-                            <li>Automatic role detection</li>
-                            <li>Binary protocol optimization</li>
+                            <li>Tenths of channel adaptive frequency hopping (902.5-927 MHz)</li>
+                            <li>Base-commanded scheduling with penalty tracking</li>
+                            <li>Asymmetric scanning </li>
+                            <li>Configurable timeout with automatic reacquisition</li>
+                            <li>AES-128 encryption on all LoRa transmissions</li>
+                            <li>Interference mitigation and penalty control</li>
                         </ul>
                     </div>
                     
                     <div class="feature-card fade-in">
-                        <h3>🌐 Professional Web Interface</h3>
+                        <h3>🤖 Complete Autonomous Stack</h3>
                         <ul>
-                            <li>Always-on WiFi hotspot mode</li>
-                            <li>Live telemetry dashboard (1Hz update)</li>
-                            <li>Smartphone-accessible control</li>
-                            <li>Real-time artificial horizon</li>
-                            <li>G-G acceleration diagrams</li>
-                            <li>Remote recording management</li>
+                            <li>4-layer architecture: Route → Plan → Control → Actuate</li>
+                            <li>Motion Control control with vehicle-specific algorithms</li>
+                            <li>Smart waypoint advancement (pass-through detection)</li>
+                            <li>Mission management with circular looping</li>
+                            <li>Real-time position and velocity tracking</li>
                         </ul>
                     </div>
                     
                     <div class="feature-card fade-in">
-                        <h3>🎬 Synchronized Video Recording</h3>
+                        <h3>✈️ Mixed Mode SAFE Stabilization</h3>
                         <ul>
-                            <li>Raw and overlay recording modes</li>
-                            <li>Perfect frame-CSV synchronization</li>
-                            <li>H.264 encoding with telemetry overlay</li>
-                            <li>30fps video with flight instruments</li>
-                            <li>Automatic file management</li>
+                            <li>Computer guidance with P/I/D stabilization (UAV)</li>
+                            <li>UAV/UGV differentiation via elevator validity</li>
+                            <li>Shared control with pilot inputs</li>
+                            <li>Adaptive authority blending for smooth transitions</li>
+                            <li>Level flight assist and rate damping</li>
+                            <li>Conditional stabilization preserves UGV control</li>
                         </ul>
                     </div>
 
                     <div class="feature-card fade-in">
-                        <h3>🧠 Visual Navigation System</h3>
+                        <h3>🛰️ Advanced Sensor Fusion</h3>
                         <ul>
-                            <li>Raspberry Pi AI Camera support</li>
-                            <li>Sony IMX500 12MP sensor</li>
-                            <li>Visual odometry processing</li>
-                            <li>Real-time feature detection</li>
-                            <li>Position estimation and SLAM</li>
-                            <li>Autonomous navigation capability</li>
+                            <li>6-DOF pose estimation with Extended Kalman Filter</li>
+                            <li>IMU preintegration for GPS-denied navigation</li>
+                            <li>Complementary filter (0.01° roll/pitch)</li>
+                            <li>QMC5883L magnetometer (0.1° azimuth)</li>
+                            <li>DGPS provisions for a (2-5m → 0.5-1.5m accuracy)</li>
+                            <li>50Hz time-controlled sampling with anti-aliasing</li>
                         </ul>
                     </div>
 
                     <div class="feature-card fade-in">
-                        <h3>🔧 Custom PCB Integration</h3>
+                        <h3>🎯 Ground Control</h3>
                         <ul>
-                            <li>Professional 2-layer PCB design</li>
-                            <li>JLCPCB manufacturing ready</li>
-                            <li>Integrated MPU6050, SD, LoRa</li>
-                            <li>3D printed environmental protection</li>
-                            <li>Optimized for aircraft installation</li>
+                            <li>Interactive map-based mission planning</li>
+                            <li>Unified state telemetry stream</li>
+                            <li>Vehicle configuration (UAV/UGV/USV)</li>
+                            <li>Live mission control with distance tracking</li>
+                            <li>H.264 video recording with flight instruments</li>
+                            <li>Multi-platform Python (Windows/macOS/Linux)</li>
                         </ul>
                     </div>
                 </div>
@@ -1336,6 +1375,16 @@ Pusher Motor Section:
                         </div>
                         
                         <div class="image-card">
+                            <img src="./figs/ground_control_desktop mission planning.jpg" alt="Mission Planning" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="image-placeholder" style="display: none;">🗺️</div>
+                            <div class="image-info">
+                                <h5>Mission Planning Interface</h5>
+                                <p>Interactive map-based waypoint planning with OpenStreetMap integration</p>
+                                <small style="color: #888; font-style: italic;"></small>
+                            </div>
+                        </div>
+                        
+                        <div class="image-card">
                             <img src="./figs/tft_display_base_station.jpg" alt="TFT Display" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="image-placeholder" style="display: none;">📺</div>
                             <div class="image-info">
@@ -1390,126 +1439,7 @@ Pusher Motor Section:
                     </div>
                 </div>
 
-                <!-- Testing and Validation -->
-                <div class="doc-section fade-in">
-                    <h3>System Testing & Validation</h3>
-                    <div class="task-list">
-                        <div class="task-card">
-                            <div class="task-header">
-                                <h5>🧪 Ground Testing</h5>
-                                <span class="task-badge">Work in progress</span>
-                            </div>
-                            <ul>
-                                <li>Set up bench testing environment</li>
-                                <li>Validate sensor calibration and integration</li>
-                                <li>Test unified state communication</li>
-                                <li>Verify SD card logging functionality</li>
-                                <li>Benchmark power consumption</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="task-card">
-                            <div class="task-header">
-                                <h5>📡 LoRa Range Testing</h5>
-                                <span class="task-badge">Work in progress</span>
-                            </div>
-                            <ul>
-                                <li>Perform field testing at varying distances</li>
-                                <li>Measure packet success rate vs. distance</li>
-                                <li>Test with different antenna configurations</li>
-                                <li>Optimize transmission parameters</li>
-                                <li>Document maximum reliable range</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="task-card">
-                            <div class="task-header">
-                                <h5>🛩️ Flight Testing</h5>
-                                <span class="task-badge">Work in progress</span>
-                            </div>
-                            <ul>
-                                <li>Complete Ranger integration with telemetry</li>
-                                <li>Perform initial taxi tests</li>
-                                <li>Validate in-flight data collection</li>
-                                <li>Test visual odometry during flight</li>
-                                <li>Verify endurance and performance</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="task-card">
-                            <div class="task-header">
-                                <h5>📈 Data Analysis & Validation</h5>
-                                <span class="task-badge">Work in progress</span>
-                            </div>
-                            <ul>
-                                <li>Develop post-flight analysis tools</li>
-                                <li>Validate sensor accuracy and precision</li>
-                                <li>Compare visual odometry to GPS data</li>
-                                <li>Create visualization dashboards</li>
-                                <li>Document system performance metrics</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <style>
-                        .task-list {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                            gap: 1.5rem;
-                            margin: 2rem 0;
-                        }
-                        
-                        .task-card {
-                            background: #f8f9fa;
-                            border-radius: 10px;
-                            padding: 1.5rem;
-                            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-                            border-left: 4px solid var(--dpilot-blue);
-                        }
-                        
-                        .task-header {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            margin-bottom: 1rem;
-                            padding-bottom: 0.5rem;
-                            border-bottom: 1px solid #eee;
-                        }
-                        
-                        .task-header h5 {
-                            color: var(--dpilot-blue);
-                            margin: 0;
-                            font-size: 1.1rem;
-                        }
-                        
-                        .task-badge {
-                            background: #FFC107;
-                            color: #333;
-                            padding: 0.2rem 0.5rem;
-                            border-radius: 4px;
-                            font-size: 0.8rem;
-                            font-weight: bold;
-                        }
-                        
-                        .task-card ul {
-                            list-style-type: none;
-                            padding-left: 0.5rem;
-                        }
-                        
-                        .task-card li {
-                            padding: 0.4rem 0;
-                            position: relative;
-                            padding-left: 1.5rem;
-                        }
-                        
-                        .task-card li:before {
-                            content: "◻";
-                            position: absolute;
-                            left: 0;
-                            color: var(--dpilot-blue);
-                        }
-                    </style>
-                </div>
+                
 
                 <!-- Assembly and Manufacturing -->
                 <div class="doc-section fade-in">
@@ -1633,8 +1563,8 @@ Phase 3: 📝 PLANNED
                 ├── SPI Bus 1: LoRa Module (Built-in)<br>
                 ├── SPI Bus 2: SD Card (CS=26, MOSI=42, SCLK=46, MISO=45)<br>
                 ├── Serial 1: USB Serial (115200 baud)<br>
-                ├── Serial 2: GPS Module (RX=19, TX=20, 38400 baud)<br>
-                └── ADC: 7-channel analog inputs (A0-A6)<br>
+                ├── Serial 2: GPS Module (RX=19, TX=20, 115200 baud)<br>
+                └── ADC: Analog inputs (A0-A6)<br>
                 <br>
                 <strong>Base Station ESP32 (Heltec WiFi LoRa 32 V3)</strong><br>
                 ├── I²C Bus 1: OLED Display (SDA_OLED, SCL_OLED)<br>
@@ -1867,8 +1797,7 @@ Phase 3: 📝 PLANNED
                                   true, 0, 0, false, 3000);
 
                 // AES-128 Encryption Initialization
-                byte key[16] = { 0xAA, 0xBB, 0xCC, 0xDD, 0x11, 0x22, 0x33, 0x44,
-                                 0x55, 0x66, 0x77, 0x88, 0x99, 0x00, 0xFE, 0xED };
+                byte key[16] = { .... };
                 aes128.setKey(key, 16);
 
                 // USB Serial Initialization
