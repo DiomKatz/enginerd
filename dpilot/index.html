@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DPilot - Custom Flight Computer & Autonomy Stack | Enginerd</title>
-    <meta name="description" content="DPilot: Research-grade flight data logging and ground control system with visual odometry, 50Hz unified state communication, and autonomous flight capabilities.">
+    <meta name="description" content="DPilot: a custom flight computer, autonomy stack and field ground station for small fixed-wing aircraft, flying autonomous waypoint missions.">
     <style>
         :root {
             --dpilot-blue: #1CB5E0;
@@ -584,7 +584,7 @@
                 <h1>DPilot</h1>
                 <div class="hero-subtitle">Custom Flight Computer, Autonomy Stack & Field Ground Station</div>
                 <div class="status-badge" style="background: #2196F3;">Research & Development</div>
-                <p>A home-built autonomy system for small fixed-wing aircraft: a custom ESP32 flight board and a Raspberry Pi Zero 2W companion computer, 50 Hz state estimation, long-range LoRa telemetry, and a handheld field computer for mission control. Now flying autonomous waypoint missions, with visual odometry research under way.</p>
+                <p>A home-built autonomy system for small fixed-wing aircraft: a custom ESP32 flight board and a Raspberry Pi Zero 2W companion computer, onboard state estimation, long-range LoRa telemetry, and a handheld field computer for mission control. Now flying autonomous waypoint missions, with visual odometry research under way.</p>
             </div>
         </section>
 
@@ -615,7 +615,6 @@
                             <li>Range: >15 km mission coverage</li>
                             <li>Flight Time: >30 minutes endurance</li>
                             <li>Communication: >5 km line of sight</li>
-                            <li>Update Rate: 50Hz unified state feedback</li>
                             <li>Flying speed: >120 km/h capability</li>
                             <li>Visual navigation and SLAM</li>
                         </ul>
@@ -624,7 +623,7 @@
                     <div class="requirement-card fade-in">
                         <h3>🤖 Development Status</h3>
                         <ul>
-                            <li>✅ 50Hz unified state estimation</li>
+                            <li>✅ Onboard state estimation (attitude, heading, position, velocity)</li>
                             <li>✅ AES-128 encrypted LoRa communication</li>
                             <li>✅ Frame-synchronized video/data logging</li>
                             <li>✅ Web-based ground control interface</li>
@@ -633,6 +632,8 @@
                             <li>✅ Flight-proven on two fixed-wing airframes</li>
                             <li>✅ 6-DOF simulation with the flight software in the loop</li>
                             <li>✅ Heading estimation robust to magnetometer disturbances</li>
+                            <li>🔄 Barometric altitude (integrated, validating in flight)</li>
+                            <li>🔄 Pitot-tube airspeed estimation</li>
                             <li>🔄 Visual odometry implementation</li>
                             <li>📝 AI camera integration (Planned)</li>
                         </ul>
@@ -747,7 +748,7 @@
                         <div class="image-placeholder" style="display: none;" onclick="alert('Upload: system_architecture_overview.jpg')">🏗️</div>
                         <div class="image-info">
                             <h5>Original System Concept</h5>
-                            <p>The first architecture sketch; see "The DPilot Flight Computer" below for the system as it flies today</p>
+                            <p>Initial architecture concept. The current architecture is under "The DPilot Flight Computer".</p>
                             <small style="color: #888; font-style: italic;"></small>
                         </div>
                     </div>
@@ -853,9 +854,10 @@
                             <li>Onboard attitude, heading, position and velocity estimation</li>
                             <li>Heading that stays accurate when the magnetometer is disturbed</li>
                             <li>IMU preintegration for GPS-denied navigation</li>
-                            <li>GPS (10 Hz), IMU and QMC5883L magnetometer fusion</li>
+                            <li>Pitot-tube airspeed (in development)</li>
+                            <li>GPS (10 Hz), IMU, QMC5883L magnetometer and BMP180 barometer fusion</li>
                             <li>Validated in 6-DOF simulation and by replaying flight logs</li>
-                            <li>50Hz time-controlled sampling with anti-aliasing</li>
+                            <li>Time-controlled sensor sampling with anti-aliasing</li>
                         </ul>
                     </div>
 
@@ -863,7 +865,7 @@
                         <h3>🎯 Ground Control</h3>
                         <ul>
                             <li>Interactive map-based mission planning</li>
-                            <li>Unified state telemetry stream</li>
+                            <li>Live telemetry stream</li>
                             <li>Vehicle configuration (UAV/UGV/USV)</li>
                             <li>Live mission control with distance tracking</li>
                             <li>H.264 video recording with flight instruments</li>
@@ -880,10 +882,6 @@
             <div class="container">
                 <h2 class="section-title">Technical Specifications</h2>
                 <div class="specs-grid">
-                    <div class="spec-card">
-                        <div class="spec-value">50Hz</div>
-                        <div class="spec-label">Unified State Rate</div>
-                    </div>
                     <div class="spec-card">
                         <div class="spec-value">10Hz</div>
                         <div class="spec-label">GPS Update Rate</div>
@@ -1014,6 +1012,31 @@
                     </div>
                 </div>
 
+                <!-- Air Data -->
+                <div class="component-category">
+                    <h4>🌬️ Air Data Sensors</h4>
+                    <div class="component-subgrid">
+                        <div class="component-card">
+                            <h5>Barometer</h5>
+                            <ul>
+                                <li><strong>Sensor:</strong> BMP180 (GY-68 board)</li>
+                                <li><strong>Interface:</strong> I²C on the Raspberry Pi</li>
+                                <li><strong>Start-up:</strong> auto-detected, zero-altitude baseline calibrated on the ground</li>
+                                <li><strong>Use:</strong> barometric altitude fused with GPS altitude</li>
+                                <li><strong>Status:</strong> 🔄 integrated and logged; being validated in flight</li>
+                            </ul>
+                        </div>
+                        <div class="component-card">
+                            <h5>Pitot-Static Airspeed</h5>
+                            <ul>
+                                <li><strong>Measures:</strong> airspeed, the speed through the air rather than over the ground</li>
+                                <li><strong>Use:</strong> airspeed input for pitch and speed control (currently GPS ground speed)</li>
+                                <li><strong>Status:</strong> 🔄 in development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Power & Storage -->
                 <div class="component-category">
                     <h4>⚡ Power & Storage System</h4>
@@ -1059,16 +1082,16 @@
                 
                 <div class="doc-section fade-in">
                     <h3>The DPilot Flight Computer</h3>
-                    <p>DPilot splits the work between two onboard computers. A custom ESP32 flight board handles everything that has to happen on time, every time: it samples the sensors, stabilizes the aircraft when the pilot flies in assisted mode, drives the servos and motor, logs to its SD card, and runs the long-range radio link. A Raspberry Pi Zero 2W companion computer does the heavier thinking: it estimates where the aircraft is and where it is pointing, executes the mission, computes the guidance and flight-control commands, and records video with synchronized flight data.</p>
-                    <p>The two exchange data 50 times per second. The pilot stays in charge throughout: a mode switch on the transmitter selects manual, assisted or autonomous flight, an output selector routes either the pilot's or the computer's signals to the servos, and the flight board hands control back to the pilot if the companion computer stops responding.</p>
-                    <p>On the ground, a LoRa base station connects the aircraft to the DPilot field computer, or to a laptop running the desktop ground-control software, for mission planning, geofences, live telemetry and post-flight debriefs. Video and a live view are available over Wi-Fi.</p>
+                    <p>Two onboard computers. The custom ESP32 flight board runs the real-time functions: sensor sampling, attitude estimation, assisted-mode stabilization, servo and ESC outputs, SD logging and the LoRa link. The Raspberry Pi Zero 2W companion computer runs navigation and autonomy: state estimation, mission execution, guidance and control, and video recording with synchronized flight data.</p>
+                    <p>The boards exchange sensor state and control commands over a serial link. A transmitter switch selects manual, assisted or autonomous mode; a hardware output selector routes either the pilot's or the computer's signals to the servos. If the companion computer stops sending commands, the flight board reverts to manual.</p>
+                    <p>Ground side: a LoRa base station connected to the DPilot field computer or to a laptop running the desktop ground station (mission planning, geofences, live telemetry, post-flight debrief). Video and live view over Wi-Fi.</p>
                     <img src="figs/dpilot_flight_computer_layout.svg" alt="DPilot flight computer layout: ESP32 flight board and Raspberry Pi Zero 2W companion computer on the aircraft, connected by LoRa to a base station and ground-control laptop" style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 1.5rem auto 0;">
                 </div>
 
                 <div class="doc-section fade-in">
                     <h3>The DPilot Base Station</h3>
-                    <p>The base station is DPilot's radio on the ground: a 3D-printed enclosure that clips onto the pilot's RC transmitter, so flight data stays in view without looking away from the aircraft. Inside is the same ESP32 LoRa board as on the aircraft, running the same firmware; with no IMU fitted, it starts up in base-station mode automatically.</p>
-                    <p>It receives and decrypts the telemetry stream, follows the frequency-hopping link, and passes everything over USB to the field computer or a laptop, which in turn send mission commands up to the vehicle. Its own two displays show the flight at a glance: a colour TFT with speed, altitude and either an artificial horizon or a G-G acceleration diagram, and a small OLED with link health (latency, signal strength, packet counts, hopping channel) and the base GPS.</p>
+                    <p>The ground-side LoRa radio, in a 3D-printed enclosure mounted on the pilot's RC transmitter. Same ESP32 LoRa board and firmware as the aircraft; it starts in base-station mode when no IMU is detected.</p>
+                    <p>It receives and decrypts telemetry, follows the frequency-hopping schedule, forwards telemetry over USB to the field computer or laptop, and uplinks their mission commands. Displays: a colour TFT (speed, altitude, artificial horizon or G-G diagram) and an OLED (latency, RSSI, packet counts, hopping channel, base GPS).</p>
                     <img src="figs/dpilot_base_station_layout.svg" alt="DPilot base station layout: ESP32 LoRa board driving a colour TFT and an OLED, with GPS and USB, linked by LoRa to the aircraft and by USB to the field computer or laptop, clipped onto the pilot's RC transmitter" style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 1.5rem auto 0;">
                     <figure style="margin: 2rem auto 0; max-width: 340px; text-align: center;">
                         <img src="figs/dpilot_base_station_displays.gif" alt="Animated emulation of the base station displays replaying an autonomous flight: artificial horizon, then G-G diagram, with the link-status OLED below" style="width: 100%; height: auto; display: block;" loading="lazy">
@@ -1078,7 +1101,7 @@
 
                 <div class="doc-section fade-in">
                     <h3>The DPilot Field Computer</h3>
-                    <p>The field computer is a handheld ground station that replaces the laptop at the flying field or on the quay. A Raspberry Pi Zero 2W with a 3.5-inch touchscreen sits in a 3D-printed case on the pilot's transmitter, with the base-station radio plugged in over USB. It runs headless, with no desktop, and draws its own touch interface:</p>
+                    <p>Handheld ground station: Raspberry Pi Zero 2W with a 3.5" touchscreen in a 3D-printed case on the pilot's transmitter, with the base-station radio on USB. Runs headless with its own touch interface:</p>
                     <ul>
                         <li><strong>STATUS:</strong> artificial horizon, speed, altitude, battery, GPS and link health</li>
                         <li><strong>MISSION:</strong> pick a mission, send its geofence, start and stop</li>
@@ -1086,7 +1109,7 @@
                         <li><strong>CAL:</strong> bench calibration of the vehicle's flight board</li>
                         <li><strong>DRONE:</strong> Wi-Fi setup and remote start/stop of the companion computer's software</li>
                     </ul>
-                    <p>Spoken call-outs announce mission start and stop, link loss and recovery, GPS loss, low battery and mode changes, so the pilot can keep their eyes on the vehicle. The field computer uses the same telemetry and command code as the desktop ground station, so the radio protocol is identical. Wi-Fi is used only on the ground, for setup; the mission itself runs over the LoRa link.</p>
+                    <p>Voice announcements: mission start/stop, link loss and recovery, GPS loss, low battery, mode changes. Telemetry and command handling are shared with the desktop ground station. Wi-Fi is for setup only; missions run over LoRa.</p>
                     <img src="figs/dpilot_field_computer_layout.svg" alt="DPilot field computer layout: Raspberry Pi Zero 2W with a 3.5-inch touchscreen, speaker and SD card, with the base-station ESP32 on USB, linked by LoRa to the vehicle and by Wi-Fi for setup" style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 1.5rem auto 0;">
                     <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: flex-start; margin-top: 2rem;">
                         <figure style="margin: 0; flex: 1 1 320px; max-width: 524px; text-align: center;">
@@ -1137,6 +1160,26 @@
                 </div>
 
                 <div class="doc-section fade-in">
+                    <h3>Drone Board Evolution</h3>
+                    <p>Successive flight-board revisions, from a carrier for the ESP32 LoRa module with plug-in sensor breakouts to an integrated surface-mount design.</p>
+                    <figure style="margin: 1.5rem auto 0; max-width: 900px; text-align: center;">
+                        <img src="figs/dpilot_evolution.jpg" alt="Four generations of DPilot drone boards side by side, from the first carrier board to a compact board with the ESP32 LoRa module stacked on top" style="width: 100%; height: auto; display: block; border-radius: 8px;" loading="lazy">
+                        <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem;">From left to right: the first board (V0.0), then three later generations.</figcaption>
+                    </figure>
+                    <ul style="margin-top: 1.5rem;">
+                        <li><strong>V0.0:</strong> Heltec WiFi LoRa 32 V3 carrier; IMU and SD card on breakout boards; servo headers.</li>
+                        <li><strong>Second:</strong> adds magnetometer, pilot/computer output selector, status LEDs, configuration jumpers.</li>
+                        <li><strong>Third:</strong> locking connectors for GPS and peripherals; AUTO and power LEDs.</li>
+                        <li><strong>Fourth:</strong> compact layout, ESP32 LoRa module stacked on the board.</li>
+                        <li><strong>v6 (in build):</strong> surface-mount; sensors, SD card and output selector on board; servo connectors on one edge.</li>
+                    </ul>
+                    <figure style="margin: 1.5rem auto 0; max-width: 760px; text-align: center;">
+                        <img src="figs/dpilot_board_v6_cad.png" alt="3D CAD render of the DPilot v6 surface-mount drone board" style="width: 100%; height: auto; display: block; border-radius: 8px;" loading="lazy">
+                        <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem;">The v6 board in 3D CAD.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="doc-section fade-in">
                     <h3>Aircraft Mounting Strategy</h3>
                     <div class="code-block">VolantexRC Ranger 1600/2000 - Optimized Layout:
 
@@ -1160,6 +1203,56 @@ Pusher Motor Section:
 ├─ ESC mounting (optimized airflow)
 ├─ Vibration isolation (3D printed dampeners)
 └─ Propeller clearance optimization</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Under the hood -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Under the Hood: Estimation, Geofencing &amp; Simulation</h2>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <h3>🧭 State Estimation</h3>
+                        <p>Runs on the Pi. Inputs: IMU, GPS, magnetometer, barometer (if fitted). Outputs: attitude, heading, position, velocity.</p>
+                        <ul>
+                            <li>Roll/pitch: quaternion attitude filter</li>
+                            <li>Position/velocity: extended Kalman filter, with IMU preintegration for GPS gaps</li>
+                            <li>Heading: GPS/INS fusion, observable from GPS velocity in turns; in-flight gyro-bias estimation</li>
+                            <li>Magnetometer: fallback only (stationary or GPS outage); in-flight errors of tens of degrees were measured</li>
+                            <li>GPS latency compensation</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>🗺️ Geofencing &amp; Coverage Planning</h3>
+                        <p>Missions define GO and NO-GO polygons, edited on satellite maps in the desktop planner or the field computer and uplinked with the mission over LoRa.</p>
+                        <ul>
+                            <li>Coverage planner (prototype): parallel sweep lanes over the GO area</li>
+                            <li>NO-GO polygons subtracted from each lane; disjoint areas covered in sequence</li>
+                            <li>Lane-to-lane transitions: grid search around obstacles, shortened to straight segments where clear</li>
+                            <li>Lane spacing checked against minimum turn radius</li>
+                            <li>Vehicle profiles: UAV, UGV, USV</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>🧪 Simulation</h3>
+                        <p>6-DOF fixed-wing simulation with the flight guidance, control and estimation code in the loop.</p>
+                        <ul>
+                            <li>Aerodynamics, propulsion, wind and gusts</li>
+                            <li>Sensor models: IMU noise and gyro bias; GPS noise, rate and latency; magnetometer latency and heading-dependent error; GPS dropouts and outages</li>
+                            <li>Mission files as input; open-loop, attitude-hold and waypoint-tracking modes</li>
+                            <li>Reports of estimated vs true states</li>
+                            <li>Replay of flight logs through the estimators and controllers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="doc-section fade-in" style="margin-top: 2rem;">
+                    <h3>Results so far</h3>
+                    <ul>
+                        <li><strong>Heading, simulation:</strong> 22° → 6° rms error with realistic magnetometer errors; 3.7° → 2.9° with an ideal magnetometer.</li>
+                        <li><strong>Heading, flight-log replay (Nov 2026 autonomous flights):</strong> residual against GPS track 10.7° → 6.8° (Phoenix), 12.2° → 7.5° (Ranger).</li>
+                        <li><strong>Validation:</strong> estimator changes are checked in simulation (against truth) and on flight-log replays.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -1251,7 +1344,6 @@ Pusher Motor Section:
                         <div class="doc-details">
                             <h4>Communication Performance</h4>
                             <ul>
-                                <li><strong>Unified State Rate:</strong> 50Hz ±1Hz sustained</li>
                                 <li><strong>LoRa Success Rate:</strong> >95% at operational range</li>
                                 <li><strong>Command Latency:</strong> <100ms typical</li>
                                 <li><strong>Range Testing:</strong> >2km line of sight verified</li>
@@ -1280,7 +1372,7 @@ Pusher Motor Section:
                                 <li>Power system verification</li>
                                 <li>LoRa communication range test</li>
                                 <li>Sensor calibration and alignment</li>
-                                <li>50Hz unified state verification</li>
+                                <li>Flight board to companion computer link verification</li>
                                 <li>AI camera and visual processing</li>
                                 <li>Web interface functionality</li>
                                 <li>Command response testing</li>
@@ -1432,6 +1524,7 @@ Pusher Motor Section:
                             <li>AI-powered feature detection and matching</li>
                             <li>Real-time SLAM implementation</li>
                             <li>Robust multi-sensor state estimation</li>
+                            <li>Air data: barometric altitude and pitot-tube airspeed</li>
                             <li>Autonomous navigation strategies</li>
                         </ul>
                     </div>
@@ -1462,8 +1555,8 @@ Pusher Motor Section:
                 <div class="doc-section fade-in" style="margin-top: 3rem;">
                     <h3>Development Roadmap</h3>
                     <div class="code-block">Phase 1: ✅ COMPLETED
-├─ Unified state communication architecture
-├─ 50Hz telemetry with perfect synchronization
+├─ Flight board ↔ companion computer data link
+├─ Telemetry logging synchronized with video
 ├─ Web-based ground control interface
 ├─ Custom PCB design and integration
 └─ Basic visual processing pipeline
@@ -1477,6 +1570,9 @@ Phase 2: ✅ COMPLETED
 └─ First autonomous flights (2026)
 
 Phase 3: 🔄 IN PROGRESS
+├─ v6 surface-mount drone board
+├─ Barometric altitude validation
+├─ Pitot-tube airspeed estimation
 ├─ Visual odometry implementation
 ├─ AI camera integration and testing
 ├─ Feature detection optimization
