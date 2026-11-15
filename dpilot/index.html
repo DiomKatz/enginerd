@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DPilot - Advanced Flight Telemetry System | Enginerd</title>
+    <title>DPilot - Custom Flight Computer & Autonomy Stack | Enginerd</title>
     <meta name="description" content="DPilot: Research-grade flight data logging and ground control system with visual odometry, 50Hz unified state communication, and autonomous flight capabilities.">
     <style>
         :root {
@@ -582,9 +582,9 @@
             <div class="container">
                 <img src="./figs/dpilot.png" alt="DPilot" class="hero-logo" />
                 <h1>DPilot</h1>
-                <div class="hero-subtitle">Research-Grade Flight Telemetry & Visual Odometry System</div>
+                <div class="hero-subtitle">Custom Flight Computer, Autonomy Stack & Field Ground Station</div>
                 <div class="status-badge" style="background: #2196F3;">Research & Development</div>
-                <p>Advanced flight telemetry system with 50Hz unified state communication, real-time web interface, and visual odometry capabilities using custom ESP32 PCB integration and Raspberry Pi AI Camera processing for autonomous flight research.</p>
+                <p>A home-built autonomy system for small fixed-wing aircraft: a custom ESP32 flight board and a Raspberry Pi Zero 2W companion computer, 50 Hz state estimation, long-range LoRa telemetry, and a handheld field computer for mission control. Now flying autonomous waypoint missions, with visual odometry research under way.</p>
             </div>
         </section>
 
@@ -600,7 +600,7 @@
                         <li><strong>Drone Operations:</strong> Designed for compliance with local UAV/drone regulations (e.g., FAA Part 107 in the US, EASA in the EU). Operators are responsible for adhering to all applicable laws regarding flight altitude, airspace, and registration.</li>
                         <li><strong>RF Transmission:</strong> LoRa modules operate in the 915MHz ISM band (US) or 868MHz (EU). Ensure operation within legal frequency and power limits as specified by the <a href="https://www.fcc.gov/" target="_blank" style="color: var(--dpilot-blue); text-decoration: underline;">FCC</a> (US) or local authorities. Maximum transmission power is set to comply with regional requirements.</li>
                         <li><strong>Encryption:</strong> AES-128 encryption is used for secure communication, following best practices for data privacy and security.</li>
-                        <li><strong>Camera Use:</strong> Visual recording and AI camera features must comply with privacy and data protection laws. Obtain necessary permissions for video capture in
+                        <li><strong>Camera Use:</strong> Visual recording and AI camera features must comply with privacy and data protection laws. Obtain necessary permissions for video capture in public and private spaces.</li>
                         <li><strong>PCB & Electronics:</strong> Custom PCB design follows RoHS and CE guidelines for electronic safety and environmental compliance.</li>
                     </ul>
                     <p style="font-size: 0.95rem; color: #888; margin-top: 1rem;">
@@ -629,9 +629,12 @@
                             <li>✅ Frame-synchronized video/data logging</li>
                             <li>✅ Web-based ground control interface</li>
                             <li>✅ Custom PCB design (JLCPCB ready)</li>
+                            <li>✅ Autonomous waypoint flight (first flights 2026)</li>
+                            <li>✅ Flight-proven on two fixed-wing airframes</li>
+                            <li>✅ 6-DOF simulation with the flight software in the loop</li>
+                            <li>✅ Heading estimation robust to magnetometer disturbances</li>
                             <li>🔄 Visual odometry implementation</li>
                             <li>📝 AI camera integration (Planned)</li>
-                            <li>📝 Full autonomous flight (Future)</li>
                         </ul>
                     </div>
 
@@ -669,6 +672,22 @@
                 </style>
                 <h2 class="section-title">The System in some videos </h2>
                 <div class="video-gallery">
+
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=njLpZYkN-eM" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="video-placeholder" style="background: url('https://img.youtube.com/vi/njLpZYkN-eM/hqdefault.jpg') center/cover;">
+                                <div style="width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
+                                    <div style="width: 70px; height: 50px; background-color: rgba(255,0,0,0.8); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                        <div style="width: 0; height: 0; border-top: 10px solid transparent; border-left: 20px solid white; border-bottom: 10px solid transparent; margin-left: 5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h4>Latest: First Autonomous Flight</h4>
+                                <p>DPilot flies its first autonomous waypoint mission. Custom hardware and software navigation system: ESP32 flight board, Raspberry Pi Zero 2W companion computer, long-range LoRa telemetry and an in-house autonomy stack, from mission planning on the ground station to closed-loop control in the air.</p>
+                            </div>
+                        </a>
+                    </div>
                     
                     <div class="video-card">
                         <a href="https://www.youtube.com/watch?v=UCzrSTzxzCQ" target="_blank" style="text-decoration: none; color: inherit;">
@@ -680,7 +699,7 @@
                                 </div>
                             </div>
                             <div class="video-info">
-                                <h4>Latest: Autonomous Flight with FHSS</h4>
+                                <h4>Autonomy Stack with Frequency-Hopping Telemetry</h4>
                                 <p>Custom dpilot (HW, SW and control) telemetry and flight control system on Volantex Phoenix 2000mm. Features: enhanced video logging (higher quality H.264), complete autonomy stack (routing → planning → control → actuation), and frequency hopping on LoRa transmission for interference mitigation. Hardware: ESP32, MPU6050, SD logging, GPS, QMC5883L compass.</p>
                             </div>
                         </a>
@@ -688,7 +707,7 @@
 
                     <div class="video-card">
                         <a href="https://youtu.be/gD0sjTvzpPA" target="_blank" style="text-decoration: none; color: inherit;">
-                            <div class="video-placeholder" style="background: url('https://img.youtube.com/vi/gD0sjTvzpPA/hqdefault.jpg') center/cover;"></div>
+                            <div class="video-placeholder" style="background: url('https://img.youtube.com/vi/gD0sjTvzpPA/hqdefault.jpg') center/cover;">
                                 <div style="width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
                                     <div style="width: 70px; height: 50px; background-color: rgba(255,0,0,0.8); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
                                         <div style="width: 0; height: 0; border-top: 10px solid transparent; border-left: 20px solid white; border-bottom: 10px solid transparent; margin-left: 5px;"></div>
@@ -727,8 +746,8 @@
                         <img src="./figs/system_architecture_overview.jpg" alt="System Architecture" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="image-placeholder" style="display: none;" onclick="alert('Upload: system_architecture_overview.jpg')">🏗️</div>
                         <div class="image-info">
-                            <h5>Complete System Architecture</h5>
-                            <p> Ground control, telemetry and drone system overview</p>
+                            <h5>Original System Concept</h5>
+                            <p>The first architecture sketch; see "The DPilot Flight Computer" below for the system as it flies today</p>
                             <small style="color: #888; font-style: italic;"></small>
                         </div>
                     </div>
@@ -787,7 +806,7 @@
                         <h3>🎥 Enhanced Video Logging</h3>
                         <ul>
                             <li>Hardware H.264 encoding with frame-perfect sync</li>
-                            <li>Custom SyncLoggerOutput (&lt;1ms timestamp accuracy)</li>
+                            <li>Custom frame-synchronized logger (&lt;1 ms timestamps)</li>
                             <li>60fps high-quality recording with telemetry</li>
                             <li>CSV logging synchronized to video epochs</li>
                             <li>Sony IMX500 AI Camera support (12MP)</li>
@@ -798,12 +817,10 @@
                     <div class="feature-card fade-in">
                         <h3>📡 FHSS Communication System</h3>
                         <ul>
-                            <li>Tenths of channel adaptive frequency hopping (902.5-927 MHz)</li>
-                            <li>Base-commanded scheduling with penalty tracking</li>
-                            <li>Asymmetric scanning </li>
-                            <li>Configurable timeout with automatic reacquisition</li>
+                            <li>Adaptive frequency hopping in the 915 MHz ISM band</li>
+                            <li>Automatic link reacquisition</li>
                             <li>AES-128 encryption on all LoRa transmissions</li>
-                            <li>Interference mitigation and penalty control</li>
+                            <li>Interference mitigation</li>
                         </ul>
                     </div>
                     
@@ -811,7 +828,7 @@
                         <h3>🤖 Complete Autonomous Stack</h3>
                         <ul>
                             <li>4-layer architecture: Route → Plan → Control → Actuate</li>
-                            <li>Motion Control control with vehicle-specific algorithms</li>
+                            <li>Vehicle-specific motion control (UAV, UGV, USV)</li>
                             <li>Smart waypoint advancement (pass-through detection)</li>
                             <li>Mission management with circular looping</li>
                             <li>Real-time position and velocity tracking</li>
@@ -822,22 +839,22 @@
                         <h3>✈️ Mixed Mode SAFE Stabilization</h3>
                         <ul>
                             <li>Computer guidance with P/I/D stabilization (UAV)</li>
-                            <li>UAV/UGV differentiation via elevator validity</li>
+                            <li>Pilot can take over at any moment</li>
                             <li>Shared control with pilot inputs</li>
                             <li>Adaptive authority blending for smooth transitions</li>
                             <li>Level flight assist and rate damping</li>
-                            <li>Conditional stabilization preserves UGV control</li>
+                            <li>Automatic handback to the pilot if the companion computer goes silent</li>
                         </ul>
                     </div>
 
                     <div class="feature-card fade-in">
                         <h3>🛰️ Advanced Sensor Fusion</h3>
                         <ul>
-                            <li>6-DOF pose estimation with Extended Kalman Filter</li>
+                            <li>Onboard attitude, heading, position and velocity estimation</li>
+                            <li>Heading that stays accurate when the magnetometer is disturbed</li>
                             <li>IMU preintegration for GPS-denied navigation</li>
-                            <li>Complementary filter (0.01° roll/pitch)</li>
-                            <li>QMC5883L magnetometer (0.1° azimuth)</li>
-                            <li>DGPS provisions for a (2-5m → 0.5-1.5m accuracy)</li>
+                            <li>GPS (10 Hz), IMU and QMC5883L magnetometer fusion</li>
+                            <li>Validated in 6-DOF simulation and by replaying flight logs</li>
                             <li>50Hz time-controlled sampling with anti-aliasing</li>
                         </ul>
                     </div>
@@ -850,7 +867,8 @@
                             <li>Vehicle configuration (UAV/UGV/USV)</li>
                             <li>Live mission control with distance tracking</li>
                             <li>H.264 video recording with flight instruments</li>
-                            <li>Multi-platform Python (Windows/macOS/Linux)</li>
+                            <li>Handheld field computer with touchscreen and voice call-outs</li>
+                            <li>Desktop ground station in Python (Windows/macOS/Linux)</li>
                         </ul>
                     </div>
                 </div>
@@ -871,16 +889,12 @@
                         <div class="spec-label">GPS Update Rate</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-value">5km</div>
-                        <div class="spec-label">LoRa Range</div>
+                        <div class="spec-value">2–5 km</div>
+                        <div class="spec-label">LoRa Range (line of sight)</div>
                     </div>
                     <div class="spec-card">
                         <div class="spec-value">AES-128</div>
                         <div class="spec-label">Encryption</div>
-                    </div>
-                    <div class="spec-card">
-                        <div class="spec-value">60 bytes</div>
-                        <div class="spec-label">State Packet</div>
                     </div>
                     <div class="spec-card">
                         <div class="spec-value">&lt;100ms</div>
@@ -896,94 +910,10 @@
                     </div>
                 </div>
 
-                <!-- Kalman Filter Description -->
+                <!-- State Estimation (high level only) -->
                 <div class="doc-section fade-in" style="margin-top: 3rem;">
-                    <h3>🧠 Kalman Filter Attitude Estimation</h3>
-                    <p>DPilot employs a sophisticated 5-state Kalman filter for high-precision attitude estimation, fusing accelerometer and gyroscope data to deliver robust roll and pitch measurements even during dynamic flight conditions.</p>
-                    
-                    <div class="doc-grid">
-                        <div class="doc-details">
-                            <h4>Filter Architecture</h4>
-                            <ul>
-                                <li><strong>State Vector:</strong> [roll, pitch, roll_rate, pitch_rate, yaw_rate]</li>
-                                <li><strong>Update Rate:</strong> 50Hz with non-uniform time handling</li>
-                                <li><strong>Gyro Integration:</strong> Dynamic time-step adjustment</li>
-                                <li><strong>Bias Correction:</strong>  Calibrated yaw rate bias removal</li>
-                                <li><strong>Noise Models:</strong> Tuned process and measurement covariances</li>
-                            </ul>
-                        </div>
-                        <div class="doc-details">
-                            <h4>Innovation Analysis</h4>
-                            <ul>
-                                <li><strong>Real-time Monitoring:</strong> Innovation factor visualization</li>
-                                <li><strong>Statistical Analysis:</strong> Means and standard deviations</li>
-                                <li><strong>Performance Target:</strong> &lt;2° steady-state accuracy</li>
-                                <li><strong>Convergence:</strong> Rapid filter stabilization (&lt;1s)</li>
-                                <li><strong>Robustness Target:</strong> Maintains accuracy during dynamic flying</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="code-block" style="margin-top: 1.5rem;">
-                # Kalman Filter State Prediction Step
-                def predict(self, gx, gy, gz, timestamp):
-                    # Calculate dt since last update
-                    dt = (timestamp - self.last_update).total_seconds()
-                    
-                    # Current state: [roll, pitch, roll_rate, pitch_rate, yaw_rate]
-                    roll, pitch, roll_rate, pitch_rate, yaw_rate = self.state
-                    
-                    # Update rates directly from gyroscope (with bias correction on yaw)
-                    roll_rate_new = gx
-                    pitch_rate_new = gy
-                    yaw_rate_new = gz  # Bias already corrected in data preparation
-                    
-                    # Integrate gyroscope rates to update angles
-                    roll_new = roll + math.degrees(gx) * dt
-                    pitch_new = pitch + math.degrees(gy) * dt
-                    
-                    # Update state vector
-                    self.state = np.array([roll_new, pitch_new, roll_rate_new, pitch_rate_new, yaw_rate_new])
-                    
-                    # Update state covariance: P = F·P·F^T + Q
-                    F = np.eye(5)  # State transition matrix
-                    F[0, 2] = dt   # roll affected by roll_rate
-                    F[1, 3] = dt   # pitch affected by pitch_rate
-                    self.P = F @ self.P @ F.T + self.Q
-                    
-                    return self.state
-
-                # Kalman Filter Measurement Update Step
-                def update_with_accel(self, ax, ay, az):
-                    # Calculate attitude from accelerometer
-                    roll_acc = math.degrees(math.atan2(ay, math.sqrt(ax*ax + az*az)))
-                    pitch_acc = math.degrees(math.atan2(-ax, math.sqrt(ay*ay + az*az)))
-                    
-                    # Measurement vector
-                    z = np.array([roll_acc, pitch_acc])
-                    
-                    # Measurement model (maps states to measurements)
-                    H = np.zeros((2, 5))
-                    H[0, 0] = 1.0  # roll_acc corresponds to roll
-                    H[1, 1] = 1.0  # pitch_acc corresponds to pitch
-                    
-                    # Innovation: difference between measurement and prediction
-                    y = z - H @ self.state
-                    
-                    # Kalman gain calculation
-                    S = H @ self.P @ H.T + self.R_accel
-                    K = self.P @ H.T @ np.linalg.inv(S)
-                    
-                    # Update state and covariance
-                    self.state = self.state + K @ y
-                    self.P = (np.eye(5) - K @ H) @ self.P
-                    
-                    return y  # Return innovation values for analysis</div>
-                    
-                    <div style="margin-top: 1.5rem;">
-                        <p>The filter employs a two-step prediction-correction approach, first integrating gyroscope data for rapid attitude updates, then using accelerometer measurements to correct drift. The innovation factor (difference between predicted and measured values) provides real-time insight into filter performance and convergence.</p>
-                        <p>This implementation handles gyroscope bias, non-uniform sampling times, and maintains high accuracy during aggressive maneuvers by carefully tuning the process and measurement noise covariance matrices.</p>
-                    </div>
+                    <h3>🧠 State Estimation</h3>
+                    <p>DPilot estimates attitude, heading, position and velocity onboard by fusing the IMU, GPS and magnetometer. The heading estimate is designed to stay accurate when the magnetometer is disturbed in flight, and the estimators are validated both in simulation and by replaying logged flights.</p>
                 </div>
             </div>
         </section>
@@ -1000,7 +930,7 @@
                         <div class="component-card">
                             <h5>Main Aircraft</h5>
                             <ul>
-                                <li><strong>Model:</strong> VolantexRC Ranger 1600/2000</li>
+                                <li><strong>Model:</strong> VolantexRC Ranger 1600/2000 and Volantex Phoenix 2000</li>
                                 <li><strong>Wingspan:</strong> 1600mm/2000mm EPO foam</li>
                                 <li><strong>Configuration:</strong> Pusher, PNP ready</li>
                                 <li><strong>Weight:</strong> 1500-1700g with telemetry (depending on Battery)</li>
@@ -1074,7 +1004,7 @@
                             <ul>
                                 <li><strong>MCU:</strong> ESP32-S3 dual-core</li>
                                 <li><strong>LoRa:</strong> SX1262 @ 915MHz</li>
-                                <li><strong>Display:</strong> 0.96" OLED 128x64</li>
+                                <li><strong>Display:</strong> 0.96" OLED 128x64 (plus a 2" colour TFT on the base station)</li>
                                 <li><strong>Power:</strong> USB-C powered</li>
                                 <li><strong>Range:</strong> 2-5km line of sight</li>
                                 <li><strong>Encryption:</strong> AES-128 security</li>
@@ -1128,22 +1058,56 @@
                 <h2 class="section-title">System Architecture & Data Flow</h2>
                 
                 <div class="doc-section fade-in">
-                    <h3>Complete System Integration</h3>
-                    <div class="code-block">Aircraft Sensors → Custom PCB ESP32 → LoRa → Ground ESP32 → USB → Pi Zero 2W
-     ↓                    ↓                                      ↓
-     ├─ IMU (50Hz) ──────→ Filtered data ──────────────────────→ Raw data
-     ├─ GPS (10Hz) ──────→ Position/velocity ─────────────────→ Navigation
-     ├─ ADC (50Hz) ──────→ Aircraft systems ──────────────────→ Health monitoring  
-     ├─ AI Camera ───────→ Visual features ──────────────────→ Odometry processing
-     └─ Status ──────────→ Flight status ────────────────────→ Safety monitoring
+                    <h3>The DPilot Flight Computer</h3>
+                    <p>DPilot splits the work between two onboard computers. A custom ESP32 flight board handles everything that has to happen on time, every time: it samples the sensors, stabilizes the aircraft when the pilot flies in assisted mode, drives the servos and motor, logs to its SD card, and runs the long-range radio link. A Raspberry Pi Zero 2W companion computer does the heavier thinking: it estimates where the aircraft is and where it is pointing, executes the mission, computes the guidance and flight-control commands, and records video with synchronized flight data.</p>
+                    <p>The two exchange data 50 times per second. The pilot stays in charge throughout: a mode switch on the transmitter selects manual, assisted or autonomous flight, an output selector routes either the pilot's or the computer's signals to the servos, and the flight board hands control back to the pilot if the companion computer stops responding.</p>
+                    <p>On the ground, a LoRa base station connects the aircraft to the DPilot field computer, or to a laptop running the desktop ground-control software, for mission planning, geofences, live telemetry and post-flight debriefs. Video and a live view are available over Wi-Fi.</p>
+                    <img src="figs/dpilot_flight_computer_layout.svg" alt="DPilot flight computer layout: ESP32 flight board and Raspberry Pi Zero 2W companion computer on the aircraft, connected by LoRa to a base station and ground-control laptop" style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 1.5rem auto 0;">
+                </div>
 
-Pi Zero 2W Processing:
-├─ H.264 video recording with AI camera (60fps)
-├─ Data logging (CSV) at 50Hz unified state
-├─ Web interface (port 5000) with live telemetry
-├─ WiFi hotspot (field access: dpilot_horizon)
-├─ Visual odometry processing and SLAM
-└─ Mission command generation and planning</div>
+                <div class="doc-section fade-in">
+                    <h3>The DPilot Base Station</h3>
+                    <p>The base station is DPilot's radio on the ground: a 3D-printed enclosure that clips onto the pilot's RC transmitter, so flight data stays in view without looking away from the aircraft. Inside is the same ESP32 LoRa board as on the aircraft, running the same firmware; with no IMU fitted, it starts up in base-station mode automatically.</p>
+                    <p>It receives and decrypts the telemetry stream, follows the frequency-hopping link, and passes everything over USB to the field computer or a laptop, which in turn send mission commands up to the vehicle. Its own two displays show the flight at a glance: a colour TFT with speed, altitude and either an artificial horizon or a G-G acceleration diagram, and a small OLED with link health (latency, signal strength, packet counts, hopping channel) and the base GPS.</p>
+                    <img src="figs/dpilot_base_station_layout.svg" alt="DPilot base station layout: ESP32 LoRa board driving a colour TFT and an OLED, with GPS and USB, linked by LoRa to the aircraft and by USB to the field computer or laptop, clipped onto the pilot's RC transmitter" style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 1.5rem auto 0;">
+                    <figure style="margin: 2rem auto 0; max-width: 340px; text-align: center;">
+                        <img src="figs/dpilot_base_station_displays.gif" alt="Animated emulation of the base station displays replaying an autonomous flight: artificial horizon, then G-G diagram, with the link-status OLED below" style="width: 100%; height: auto; display: block;" loading="lazy">
+                        <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem;">Both base-station displays, rendered from the display firmware and replaying 30 seconds of an autonomous flight.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="doc-section fade-in">
+                    <h3>The DPilot Field Computer</h3>
+                    <p>The field computer is a handheld ground station that replaces the laptop at the flying field or on the quay. A Raspberry Pi Zero 2W with a 3.5-inch touchscreen sits in a 3D-printed case on the pilot's transmitter, with the base-station radio plugged in over USB. It runs headless, with no desktop, and draws its own touch interface:</p>
+                    <ul>
+                        <li><strong>STATUS:</strong> artificial horizon, speed, altitude, battery, GPS and link health</li>
+                        <li><strong>MISSION:</strong> pick a mission, send its geofence, start and stop</li>
+                        <li><strong>MAP:</strong> offline satellite imagery with geofences, waypoints and the live track; waypoints can be edited on the spot</li>
+                        <li><strong>CAL:</strong> bench calibration of the vehicle's flight board</li>
+                        <li><strong>DRONE:</strong> Wi-Fi setup and remote start/stop of the companion computer's software</li>
+                    </ul>
+                    <p>Spoken call-outs announce mission start and stop, link loss and recovery, GPS loss, low battery and mode changes, so the pilot can keep their eyes on the vehicle. The field computer uses the same telemetry and command code as the desktop ground station, so the radio protocol is identical. Wi-Fi is used only on the ground, for setup; the mission itself runs over the LoRa link.</p>
+                    <img src="figs/dpilot_field_computer_layout.svg" alt="DPilot field computer layout: Raspberry Pi Zero 2W with a 3.5-inch touchscreen, speaker and SD card, with the base-station ESP32 on USB, linked by LoRa to the vehicle and by Wi-Fi for setup" style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 1.5rem auto 0;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: flex-start; margin-top: 2rem;">
+                        <figure style="margin: 0; flex: 1 1 320px; max-width: 524px; text-align: center;">
+                            <img src="figs/dpilot_field_computer_screens.gif" alt="Animated field computer screens: selecting the Chania Harbour mission, sending the geofence and starting, then the satellite map with the boat's live track and the status screen" style="width: 100%; height: auto; display: block;" loading="lazy">
+                            <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem;">The field-station software running headless with a simulated boat inside the Chania Harbour geofence: send the geofence, start, then follow it on the map.</figcaption>
+                        </figure>
+                        <figure style="margin: 0; flex: 0 1 300px; text-align: center;">
+                            <img src="figs/FieldCompute_1.jpeg" alt="The DPilot field computer mounted on a FlySky transmitter, showing the STATUS screen" style="width: 100%; height: auto; display: block; border-radius: 8px;" loading="lazy">
+                            <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem;">The field computer on the pilot's transmitter.</figcaption>
+                        </figure>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-top: 2rem;">
+                        <figure style="margin: 0; flex: 1 1 320px; max-width: 480px; text-align: center;">
+                            <img src="figs/FieldCompute_Map.jpeg" alt="Field computer MAP screen showing the Chania Harbour geofence on satellite imagery" style="width: 100%; height: auto; display: block; border-radius: 8px;" loading="lazy">
+                            <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem;">MAP: the Chania Harbour geofence on offline satellite imagery.</figcaption>
+                        </figure>
+                        <figure style="margin: 0; flex: 1 1 320px; max-width: 480px; text-align: center;">
+                            <img src="figs/FieldCompute_Status.jpeg" alt="Field computer STATUS screen with horizon, speed, altitude, battery, GPS and link health" style="width: 100%; height: auto; display: block; border-radius: 8px;" loading="lazy">
+                            <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem;">STATUS on the bench, before the vehicle has a GPS fix.</figcaption>
+                        </figure>
+                    </div>
                 </div>
 
                 <div class="doc-section fade-in">
@@ -1258,6 +1222,24 @@ Pusher Motor Section:
             </div>
         </section>
         
+        <!-- Thanks -->
+        <section class="content-section alt">
+            <div class="container">
+                <h2 class="section-title">Flying with Jon</h2>
+                <div class="doc-section fade-in" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                    <figure style="margin: 0; flex: 1 1 360px; max-width: 560px;">
+                        <img src="figs/jon_and_diomidis.jpeg" alt="Jon Hoshizaki and Diomidis at the flying field, holding up two DPilot test aircraft" style="width: 100%; height: auto; display: block; border-radius: 10px;" loading="lazy">
+                        <figcaption style="font-size: 0.9rem; color: #777; margin-top: 0.6rem; text-align: center;">Jon Hoshizaki and Diomidis at the flying field with two of the DPilot test aircraft.</figcaption>
+                    </figure>
+                    <div style="flex: 1 1 300px;">
+                        <h3>A big thank you to Jon Hoshizaki</h3>
+                        <p> Jon helps with the flying, with the airplanes and their aerodynamics, and with setting the aircraft up for the test flights, including the first autonomous ones.</p>
+                        <p>Thank you, Jon!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- System Testing & Performance -->
         <section class="content-section">
             <div class="container">
@@ -1309,11 +1291,11 @@ Pusher Motor Section:
                             <ol>
                                 <li>Taxi tests with sensor validation</li>
                                 <li>Range tests at operational distance</li>
-                                <li>Short flights with basic telemetry</li>
+                                <li>✅ Short flights with basic telemetry</li>
                                 <li>Extended flights for endurance</li>
                                 <li>Visual odometry validation</li>
-                                <li>Mission command following</li>
-                                <li>Autonomous flight capabilities</li>
+                                <li>✅ Mission command following</li>
+                                <li>✅ Autonomous waypoint flights</li>
                             </ol>
                         </div>
                         <div class="component-card">
@@ -1326,6 +1308,7 @@ Pusher Motor Section:
                                 <li>Communication reliability metrics</li>
                                 <li>System performance profiling</li>
                                 <li>Research data validation</li>
+                                <li>Flight-log replay through the estimators and the 6-DOF simulator</li>
                             </ol>
                         </div>
                     </div>
@@ -1389,7 +1372,7 @@ Pusher Motor Section:
                             <div class="image-placeholder" style="display: none;">📺</div>
                             <div class="image-info">
                                 <h5>TFT Base Station Display</h5>
-                                <p>2" TFT with real-time G-G diagrams</p>
+                                <p>2" colour TFT with artificial horizon and G-G diagram</p>
                                 <small style="color: #888; font-style: italic;"></small>
                             </div>
                         </div>
@@ -1425,7 +1408,7 @@ Pusher Motor Section:
                             <img src="./figs/Lora_TFT.jpg" alt="3D Printing" style="width: 100%; height: 600px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="image-placeholder" style="display: none;">🖨️</div>
                             <div class="image-info">
-                                <h5>Ground Control TFTs Displays</h5>
+                                <h5>Base Station Enclosure</h5>
                                 <p>Custom component printing in PETG</p>
                                 <small style="color: #888; font-style: italic;"></small>
                             </div>
@@ -1448,7 +1431,7 @@ Pusher Motor Section:
                             <li>Visual odometry algorithm development</li>
                             <li>AI-powered feature detection and matching</li>
                             <li>Real-time SLAM implementation</li>
-                            <li>Multi-sensor fusion techniques</li>
+                            <li>Robust multi-sensor state estimation</li>
                             <li>Autonomous navigation strategies</li>
                         </ul>
                     </div>
@@ -1456,7 +1439,7 @@ Pusher Motor Section:
                     <div class="feature-card fade-in">
                         <h3>🎯 Future Capabilities</h3>
                         <ul>
-                            <li>Full autonomous flight missions</li>
+                            <li>Long-range autonomous missions</li>
                             <li>Object detection and avoidance</li>
                             <li>Landing site detection and selection</li>
                             <li>Swarm coordination protocols</li>
@@ -1485,15 +1468,23 @@ Pusher Motor Section:
 ├─ Custom PCB design and integration
 └─ Basic visual processing pipeline
 
-Phase 2: 🔄 IN PROGRESS
+Phase 2: ✅ COMPLETED
+├─ Map-based mission planning and upload
+├─ Closed-loop guidance and flight control
+├─ Robust heading and pose estimation
+├─ Simulation with the flight software in the loop
+├─ Handheld field computer (Pi Zero 2W, touchscreen)
+└─ First autonomous flights (2026)
+
+Phase 3: 🔄 IN PROGRESS
 ├─ Visual odometry implementation
 ├─ AI camera integration and testing
 ├─ Feature detection optimization
 ├─ SLAM algorithm development
 └─ Position estimation validation
 
-Phase 3: 📝 PLANNED
-├─ Full autonomous flight capability
+Phase 4: 📝 PLANNED
+├─ Long-range autonomous missions
 ├─ Advanced AI model deployment
 ├─ Object detection and avoidance
 ├─ Multi-aircraft coordination
@@ -1502,266 +1493,6 @@ Phase 3: 📝 PLANNED
             </div>
         </section>
 
-        <!-- Add a new section for Hardware Interface Documentation -->
-        <section class="content-section alt">
-    <div class="container">
-        <h2 class="section-title">Hardware Interface Documentation</h2>
-
-        <!-- System Architecture Overview -->
-        <div class="doc-section fade-in">
-            <h3>🏗️ System Architecture Overview</h3>
-            <div class="architecture-diagram">
-                <strong>Drone ESP32 (Heltec WiFi LoRa 32 V3)</strong><br>
-                ├── I²C Bus 1: MPU6050 IMU (SDA=47, SCL=48)<br>
-                <strong>Drone ESP32 (Heltec WiFi LoRa 32 V3)</strong><br>
-                ├── I²C Bus 1: MPU6050 IMU (SDA=47, SCL=48)<br>
-                ├── I²C Bus 2: OLED Display (SDA_OLED, SCL_OLED)<br>
-                ├── SPI Bus 1: LoRa Module (Built-in)<br>
-                ├── SPI Bus 2: SD Card (CS=26, MOSI=42, SCLK=46, MISO=45)<br>
-                ├── Serial 1: USB Serial (115200 baud)<br>
-                ├── Serial 2: GPS Module (RX=19, TX=20, 115200 baud)<br>
-                └── ADC: Analog inputs (A0-A6)<br>
-                <br>
-                <strong>Base Station ESP32 (Heltec WiFi LoRa 32 V3)</strong><br>
-                ├── I²C Bus 1: OLED Display (SDA_OLED, SCL_OLED)<br>
-                ├── SPI Bus 1: LoRa Module (Built-in)<br>
-                ├── SPI Bus 2: TFT Display (CS=26, DC=45, SCLK=46, MOSI=42)<br>
-                └── Serial 1: USB Serial (115200 baud)
-            </div>
-            <div class="highlight-box">
-                <h4>🎯 Automatic Role Detection</h4>
-                System automatically determines role based on MPU6050 presence:
-                <br><strong>MPU6050 Detected</strong> → Drone Mode (sensor collection, SD logging)
-                <br><strong>No MPU6050</strong> → Base Station Mode (command relay, TFT display)
-            </div>
-        </div>
-
-        <!-- Pin Assignment Tables -->
-        <div class="doc-section fade-in">
-            <h3>📡 Complete Pin Assignment Tables</h3>
-            <div class="device-card">
-                <h4>🚁 Drone Configuration <span class="status-badge status-drone">DRONE MODE</span></h4>
-                <table class="pinout-table">
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Interface</th>
-                            <th>ESP32 Pins</th>
-                            <th>Configuration</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>MPU6050 IMU</strong></td>
-                            <td>I²C Bus 1 (Wire1)</td>
-                            <td>SDA=47, SCL=48</td>
-                            <td>±8g accel, ±500°/s gyro, 10Hz filter</td>
-                        </tr>
-                        <tr>
-                            <td><strong>GPS Module</strong></td>
-                            <td>Serial2</td>
-                            <td>RX=19, TX=20</td>
-                            <td>38400 baud, 8N1</td>
-                        </tr>
-                        <tr>
-                            <td><strong>SD Card</strong></td>
-                            <td>SPI Bus 2 (spi1)</td>
-                            <td>CS=26, MOSI=42, SCLK=46, MISO=45</td>
-                            <td>Time-controlled logging, auto file management</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Analog Sensors</strong></td>
-                            <td>ADC</td>
-                            <td>A0(12), A1(13), A2(14), A3(15), A4(16), A5(17), A6(18)</td>
-                            <td>7-channel 8-bit ADC, 0-255 range</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Logging Button</strong></td>
-                            <td>Digital Input</td>
-                            <td>GPIO 41 (Pull-up)</td>
-                            <td>Single-button start/stop logging</td>
-                        </tr>
-                        <tr>
-                            <td><strong>OLED Display</strong></td>
-                            <td>I²C Bus 2</td>
-                            <td>SDA_OLED, SCL_OLED</td>
-                            <td>128x64 status display</td>
-                        </tr>
-                        <tr>
-                            <td><strong>LoRa Module</strong></td>
-                            <td>SPI Bus 1 (Built-in)</td>
-                            <td>Integrated</td>
-                            <td>915MHz, 21dBm, SF7, BW=500kHz, AES-128</td>
-                        </tr>
-                        <tr>
-                            <td><strong>USB Serial</strong></td>
-                            <td>Serial (Built-in)</td>
-                            <td>USB Port</td>
-                            <td>115200 baud, unified state packets (50Hz)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="device-card">
-                <h4>📡 Base Station Configuration <span class="status-badge status-base">BASE STATION</span></h4>
-                <table class="pinout-table">
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Interface</th>
-                            <th>ESP32 Pins</th>
-                            <th>Configuration</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>TFT Display</strong></td>
-                            <td>SPI Bus 2 (spiTFT)</td>
-                            <td>CS=26, DC=45, SCLK=46, MOSI=42</td>
-                            <td>240x320 ST7789, G-G diagram, flight instruments</td>
-                        </tr>
-                        <tr>
-                            <td><strong>OLED Display</strong></td>
-                            <td>I²C Bus 1</td>
-                            <td>SDA_OLED, SCL_OLED</td>
-                            <td>128x64 system status</td>
-                        </tr>
-                        <tr>
-                            <td><strong>LoRa Module</strong></td>
-                            <td>SPI Bus 1 (Built-in)</td>
-                            <td>Integrated</td>
-                            <td>915MHz, 21dBm, SF7, BW=500kHz, AES-128</td>
-                        </tr>
-                        <tr>
-                            <td><strong>USB Serial</strong></td>
-                            <td>Serial (Built-in)</td>
-                            <td>USB Port</td>
-                            <td>115200 baud, binary command interface</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Hardware Initialization Code -->
-        <div class="doc-section fade-in">
-            <h3>🔧 Hardware Initialization Code</h3>
-
-            <!-- Drone Mode Initialization -->
-            <h4>🚁 Drone Mode Initialization</h4>
-            <div class="code-block">
-                // MPU6050 IMU Initialization (I²C Bus 1)
-                static const uint8_t SCL_IMU = 48;
-                static const uint8_t SDA_IMU = 47;
-
-                Wire1.begin(SDA_IMU, SCL_IMU);
-                while (!mpu.begin(MPU6050_I2CADDR_DEFAULT, &Wire1, 0)) {
-                    delay(100);
-                    Serial.println("Failed to find MPU6050 chip");
-                }
-
-                // Configure MPU6050 settings
-                mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
-                mpu.setGyroRange(MPU6050_RANGE_500_DEG);
-                mpu.setFilterBandwidth(MPU6050_BAND_10_HZ);
-
-                // GPS Module Initialization (Serial2)
-                #define Serial2RxPin 19
-                #define Serial2TxPin 20
-
-                Serial2.begin(38400, SERIAL_8N1, Serial2RxPin, Serial2TxPin);
-
-                // SD Card Initialization (SPI Bus 2)
-                #define SD_CS 26
-                #define SD_MOSI 42
-                #define SD_SCLK 46
-                #define SD_MISO 45
-
-                SPIClass spi1;
-                spi1.begin(SD_SCLK, SD_MISO, SD_MOSI, SD_CS);
-                while (!SD.begin(SD_CS, spi1)) {
-                    delay(100);
-                    Serial.println("Failed to find SD card");
-                }
-
-                // Analog Input Initialization
-                #define analogInPin0 12  // A0
-                #define analogInPin1 13  // A1
-                #define analogInPin2 14  // A2
-                #define analogInPin3 15  // A3
-                #define analogInPin4 16  // A4
-                #define analogInPin5 17  // A5
-                #define analogInPin6 18  // A6
-
-                pinMode(A0, INPUT); pinMode(A1, INPUT); pinMode(A2, INPUT);
-                pinMode(A3, INPUT); pinMode(A4, INPUT); pinMode(A5, INPUT);
-                pinMode(A6, INPUT);
-
-                // Logging Button Initialization
-                #define BUTTON_LOG 41
-                pinMode(BUTTON_LOG, INPUT_PULLUP);
-            </div>
-
-            <!-- Base Station Mode Initialization -->
-            <h4>📡 Base Station Mode Initialization</h4>
-            <div class="code-block">
-                // TFT Display Initialization (SPI Bus 2)
-                #define TFT_CS    26
-                #define TFT_DC    45
-                #define TFT_RST   -1  // No reset pin
-                #define TFT_SCLK  46
-                #define TFT_MOSI  42
-
-                SPIClass spiTFT = SPIClass(HSPI);
-                Adafruit_ST7789 tft = Adafruit_ST7789(&spiTFT, TFT_CS, TFT_DC, TFT_RST);
-
-                // Initialize SPI for TFT
-                spiTFT.begin(TFT_SCLK, -1, TFT_MOSI, TFT_CS);
-
-                // Initialize the display
-                tft.init(240, 320);  // 240x320 resolution
-                tft.setRotation(0);
-                tft.fillScreen(ST77XX_BLACK);
-
-                // Initialize default reference command for base station
-                initializeDefaultReferenceCommand();
-            </div>
-
-            <!-- Shared Components Initialization -->
-            <h4>🔄 Shared Components Initialization</h4>
-            <div class="code-block">
-                // OLED Display Initialization (Both modes)
-                static SSD1306Wire display(0x3c, 500000, SDA_OLED, SCL_OLED, GEOMETRY_128_64, RST_OLED);
-
-                VextON();  // Enable Vext power
-                delay(100);
-                display.init();
-                display.setFont(ArialMT_Plain_10);
-                display.clear();
-
-                // LoRa Module Initialization (Both modes)
-                #define RF_FREQUENCY 915000000  // Hz
-                #define TX_OUTPUT_POWER 21      // dBm
-                #define LORA_BANDWIDTH 2         // 500 kHz
-                #define LORA_SPREADING_FACTOR 7  // SF7
-                #define LORA_CODINGRATE 1        // 4/5
-
-                Radio.Init(&RadioEvents);
-                Radio.SetChannel(RF_FREQUENCY);
-                Radio.SetTxConfig(MODEM_LORA, TX_OUTPUT_POWER, 0, LORA_BANDWIDTH,
-                                  LORA_SPREADING_FACTOR, LORA_CODINGRATE, 8, false,
-                                  true, 0, 0, false, 3000);
-
-                // AES-128 Encryption Initialization
-                byte key[16] = { .... };
-                aes128.setKey(key, 16);
-
-                // USB Serial Initialization
-                Serial.begin(115200);
-            </div>
-        </div>
-    </div>
-</section>
     </main>
 
     <script>

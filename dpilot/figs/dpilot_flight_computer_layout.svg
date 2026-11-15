@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>DPilot flight computer layout</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#37474F"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0288D1"/>
+    </marker>
+    <marker id="arrP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7B1FA2"/>
+    </marker>
+    <style>
+      .zone-label { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; }
+      .title { font-size: 16px; font-weight: 700; fill: #1F2D33; }
+      .sub { font-size: 12px; fill: #5F7079; }
+      .item { font-size: 13px; fill: #263238; }
+      .small { font-size: 13px; font-weight: 600; fill: #263238; }
+      .link { font-size: 12px; fill: #37474F; }
+      .linkB { font-size: 12px; fill: #0277BD; font-weight: 600; }
+      .linkP { font-size: 12px; fill: #6A1B9A; font-weight: 600; }
+      .box { fill: #FFFFFF; stroke: #90A4AE; stroke-width: 1.2; }
+      .core { fill: #FFFFFF; stroke: #0288D1; stroke-width: 2; }
+      .gbox { fill: #FFFFFF; stroke: #9575CD; stroke-width: 1.2; }
+      .line { stroke: #37474F; stroke-width: 1.6; fill: none; }
+    </style>
+  </defs>
+
+  <!-- ===== Aircraft zone ===== -->
+  <rect x="15" y="15" width="970" height="470" rx="16" fill="#EAF7FC" stroke="#1CB5E0" stroke-width="1.5"/>
+  <text x="35" y="42" class="zone-label" fill="#0288D1">ON THE AIRCRAFT</text>
+
+  <!-- Sensors -->
+  <rect x="40" y="70" width="170" height="52" rx="8" class="box"/>
+  <text x="125" y="93" text-anchor="middle" class="small">IMU</text>
+  <text x="125" y="111" text-anchor="middle" class="sub">gyro + accelerometer</text>
+
+  <rect x="40" y="140" width="170" height="52" rx="8" class="box"/>
+  <text x="125" y="163" text-anchor="middle" class="small">Magnetometer</text>
+  <text x="125" y="181" text-anchor="middle" class="sub">compass</text>
+
+  <rect x="40" y="210" width="170" height="52" rx="8" class="box"/>
+  <text x="125" y="233" text-anchor="middle" class="small">GPS</text>
+  <text x="125" y="251" text-anchor="middle" class="sub">position + velocity, 10 Hz</text>
+
+  <line x1="210" y1="96" x2="253" y2="96" class="line" marker-end="url(#arr)"/>
+  <line x1="210" y1="166" x2="253" y2="166" class="line" marker-end="url(#arr)"/>
+  <line x1="210" y1="236" x2="253" y2="236" class="line" marker-end="url(#arr)"/>
+
+  <!-- ESP32 flight board -->
+  <rect x="255" y="60" width="255" height="215" rx="12" class="core"/>
+  <text x="275" y="88" class="title">ESP32 flight board</text>
+  <text x="275" y="106" class="sub">custom PCB · hard real-time</text>
+  <text x="275" y="134" class="item">• Sensor sampling, attitude</text>
+  <text x="275" y="157" class="item">• Pilot-assist stabilization</text>
+  <text x="275" y="180" class="item">• Flight modes and failsafe</text>
+  <text x="275" y="203" class="item">• Servo / ESC outputs</text>
+  <text x="275" y="226" class="item">• On-board SD logging</text>
+  <text x="275" y="249" class="item">• LoRa radio, frequency hopping</text>
+
+  <!-- ESP32 <-> Pi link -->
+  <line x1="512" y1="128" x2="636" y2="128" class="line" marker-end="url(#arr)"/>
+  <line x1="636" y1="188" x2="514" y2="188" class="line" marker-end="url(#arr)"/>
+  <text x="574" y="118" text-anchor="middle" class="link">sensor state</text>
+  <text x="574" y="146" text-anchor="middle" class="link">50 Hz</text>
+  <text x="574" y="178" text-anchor="middle" class="link">control commands</text>
+  <text x="574" y="206" text-anchor="middle" class="link">50 Hz</text>
+
+  <!-- Raspberry Pi companion -->
+  <rect x="640" y="60" width="320" height="215" rx="12" class="core"/>
+  <text x="660" y="88" class="title">Raspberry Pi Zero 2W</text>
+  <text x="660" y="106" class="sub">companion computer · navigation + autonomy</text>
+  <text x="660" y="134" class="item">• Pose and heading estimation</text>
+  <text x="660" y="157" class="item">• Mission execution, waypoints</text>
+  <text x="660" y="180" class="item">• Guidance and flight control</text>
+  <text x="660" y="203" class="item">• Geofence checks</text>
+  <text x="660" y="226" class="item">• Video + synchronized data logs</text>
+  <text x="660" y="249" class="item">• Wi-Fi hotspot for field access</text>
+
+  <!-- Camera -->
+  <rect x="680" y="330" width="190" height="52" rx="8" class="box"/>
+  <text x="775" y="353" text-anchor="middle" class="small">Camera</text>
+  <text x="775" y="371" text-anchor="middle" class="sub">H.264 video, vision</text>
+  <line x1="775" y1="330" x2="775" y2="279" class="line" marker-end="url(#arr)"/>
+
+  <!-- RC receiver, selector, actuators -->
+  <rect x="40" y="320" width="170" height="56" rx="8" class="box"/>
+  <text x="125" y="344" text-anchor="middle" class="small">RC receiver</text>
+  <text x="125" y="363" text-anchor="middle" class="sub">pilot sticks + mode switch</text>
+
+  <rect x="255" y="320" width="190" height="56" rx="8" class="box"/>
+  <text x="350" y="344" text-anchor="middle" class="small">Output selector</text>
+  <text x="350" y="363" text-anchor="middle" class="sub">pilot or computer</text>
+
+  <rect x="255" y="415" width="190" height="50" rx="8" class="box"/>
+  <text x="350" y="438" text-anchor="middle" class="small">Servos + motor ESC</text>
+  <text x="350" y="455" text-anchor="middle" class="sub">surfaces, throttle</text>
+
+  <!-- receiver -> selector (pilot path) -->
+  <line x1="210" y1="348" x2="251" y2="348" class="line" marker-end="url(#arr)"/>
+  <!-- receiver -> ESP32 (stick + mode inputs) -->
+  <polyline points="125,320 125,295 290,295 290,279" class="line" marker-end="url(#arr)"/>
+  <!-- ESP32 -> selector (computed outputs) -->
+  <line x1="400" y1="275" x2="400" y2="316" class="line" marker-end="url(#arr)"/>
+  <text x="408" y="300" class="link">outputs</text>
+  <!-- selector -> actuators -->
+  <line x1="350" y1="376" x2="350" y2="411" class="line" marker-end="url(#arr)"/>
+
+  <!-- ===== Ground zone ===== -->
+  <rect x="15" y="510" width="970" height="175" rx="16" fill="#F4EFFA" stroke="#9575CD" stroke-width="1.5"/>
+  <text x="905" y="537" text-anchor="end" class="zone-label" fill="#7B1FA2">ON THE GROUND</text>
+
+  <rect x="40" y="565" width="170" height="80" rx="8" class="gbox"/>
+  <text x="125" y="597" text-anchor="middle" class="small">Pilot transmitter</text>
+  <text x="125" y="617" text-anchor="middle" class="sub">manual takeover</text>
+  <text x="125" y="633" text-anchor="middle" class="sub">at any time</text>
+
+  <rect x="255" y="565" width="250" height="80" rx="8" class="gbox"/>
+  <text x="380" y="597" text-anchor="middle" class="small">Base station radio</text>
+  <text x="380" y="617" text-anchor="middle" class="sub">ESP32 + LoRa, status display</text>
+
+  <rect x="580" y="565" width="380" height="80" rx="8" class="gbox"/>
+  <text x="770" y="592" text-anchor="middle" class="small">Field computer or laptop</text>
+  <text x="770" y="612" text-anchor="middle" class="sub">map-based mission planning, geofences,</text>
+  <text x="770" y="630" text-anchor="middle" class="sub">live telemetry, flight logs and debrief</text>
+
+  <line x1="505" y1="605" x2="576" y2="605" class="line" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="541" y="597" text-anchor="middle" class="link">USB</text>
+
+  <!-- RC link -->
+  <line x1="125" y1="565" x2="125" y2="380" stroke="#7B1FA2" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arrP)"/>
+  <text x="133" y="470" class="linkP">2.4 GHz RC</text>
+
+  <!-- LoRa link -->
+  <line x1="480" y1="279" x2="480" y2="561" stroke="#0288D1" stroke-width="1.8" stroke-dasharray="6 4" marker-start="url(#arrB)" marker-end="url(#arrB)"/>
+  <text x="490" y="430" class="linkB">LoRa 915 MHz</text>
+  <text x="490" y="446" class="linkB">encrypted, hopping</text>
+  <text x="490" y="464" class="link">↓ telemetry  ↑ missions</text>
+
+  <!-- Wi-Fi link -->
+  <line x1="930" y1="279" x2="930" y2="561" stroke="#0288D1" stroke-width="1.8" stroke-dasharray="2 4" marker-start="url(#arrB)" marker-end="url(#arrB)"/>
+  <text x="922" y="430" text-anchor="end" class="linkB">Wi-Fi</text>
+  <text x="922" y="446" text-anchor="end" class="link">video, live view</text>
+</svg>
